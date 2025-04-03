@@ -1,21 +1,30 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { FaFacebook, FaLinkedin, FaInstagram, FaChevronDown } from "react-icons/fa";
+import React, { useState, useEffect, useRef } from "react";
+import {
+  FaFacebook,
+  FaLinkedin,
+  FaInstagram,
+  FaChevronDown,
+} from "react-icons/fa";
 import { CgMenuLeft } from "react-icons/cg";
 import { IoCloseOutline } from "react-icons/io5";
+import { Logo } from "../assets";
+import { Link } from "react-router-dom";
 
 const allMenus = [
   { label: `Home`, link: `/` },
   { label: `About Us`, link: `/` },
-  { 
-    label: `Products`, 
+  {
+    label: `Products`,
     link: `/products`,
     submenu: [
-      { label: `Product 1`, link: `/products/1` },
-      { label: `Product 2`, link: `/products/2` },
-      { label: `Product 3`, link: `/products/3` },
-    ]
+      { label: `Energy Portal`, link: `/` },
+      { label: `Power Grid Solutions`, link: `/` },
+      { label: `Renewable Energy Services`, link: `/` },
+      { label: `Transmission & Distribution Solutions`, link: `/` },
+      { label: `Consulting & Advisory Services`, link: `/` },
+    ],
   },
-  { label: `Contact Us`, link: `/` }
+  { label: `Contact Us`, link: `/` },
 ];
 
 const Header = () => {
@@ -39,8 +48,8 @@ const Header = () => {
       setIsSticky(window.scrollY > 100);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Close mobile menu when clicking outside
@@ -51,8 +60,8 @@ const Header = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Handle submenu hover with delay to prevent flickering (desktop)
@@ -84,78 +93,91 @@ const Header = () => {
 
   return (
     <nav ref={headerRef}>
-      <div className='bg-white w-full'>
+      <div className="bg-white w-full">
         {/* Menu placeholder to prevent content jump */}
         <div style={{ height: isSticky ? menuHeight : 0 }} aria-hidden="true" />
 
         {/* Sticky menu - now includes logo and mobile button */}
         <div
           ref={menuRef}
-          className={`w-full bg-white transition-all duration-300 ease-in-out ${
-            isSticky 
-              ? 'fixed top-0 left-0 shadow-md z-50 py-3' 
-              : 'relative py-5'
+          className={`w-full flex items-center ${
+            isSticky ? "bg-white xl:bg-gray-100" : "bg-white"
+          } transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            isSticky
+              ? "fixed top-0 left-0 shadow-sm z-50 h-[8vh]"
+              : "relative h-[10vh]"
           }`}
         >
-          <div className='w-11/12 mx-auto flex justify-between items-center'>
+          <div className="w-11/12 xl:w-10/12 mx-auto flex justify-between items-center">
             {/* Logo - shown on all devices */}
-            <p className='text-xl xl:text-2xl font-medium'>MY LOGO</p>
-            
+            <img
+              className={`${
+                isSticky ? "h-9 xl:h-10" : "h-8 xl:h-12"
+              } transition-all duration-500 object-contain`}
+              src={Logo}
+              alt=""
+            />
+
             {/* Desktop Menu and Social Icons */}
             <div className="hidden md:flex items-center gap-20">
-              <div className="flex gap-8 relative" onMouseLeave={handleMenuLeave}>
+              <div
+                className="flex gap-8 relative"
+                onMouseLeave={handleMenuLeave}
+              >
                 {allMenus.map((menu, index) => (
-                  <div 
+                  <div
                     key={`desktop-${index}`}
                     className="relative group"
                     onMouseEnter={() => handleMenuHover(index)}
                   >
-                    <a 
-                      href={menu.link} 
-                      className="flex items-center gap-1 text-gray-700 hover:text-blue-600 transition-colors"
+                    <Link
+                      to={menu.link}
+                      className="flex items-center gap-1 text-gray-700 hover:text-main transition-colors"
                     >
                       {menu.label}
                       {menu.submenu && (
-                        <FaChevronDown className={`text-xs transition-transform duration-200 ${
-                          activeSubmenu === index ? 'rotate-180' : ''
-                        }`} />
+                        <FaChevronDown
+                          className={`text-xs transition-transform duration-200 ${
+                            activeSubmenu === index ? "rotate-180" : ""
+                          }`}
+                        />
                       )}
-                    </a>
+                    </Link>
 
                     {/* Desktop Submenu */}
                     {menu.submenu && (
-                      <div 
-                        className={`absolute left-0 top-full mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50 ${
-                          activeSubmenu === index 
-                            ? 'opacity-100 translate-y-0 visible' 
-                            : 'opacity-0 -translate-y-2 invisible'
+                      <div
+                        className={`absolute left-0 top-full mt-2 w-fit text-nowrap bg-white rounded-md shadow-lg py-1 z-50 ${
+                          activeSubmenu === index
+                            ? "opacity-100 translate-y-0 visible"
+                            : "opacity-0 -translate-y-2 invisible"
                         } transition-all duration-300 ease-in-out`}
                       >
                         {menu.submenu.map((subitem, subIndex) => (
-                          <a
+                          <Link
                             key={`desktop-sub-${subIndex}`}
-                            href={subitem.link}
-                            className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                            to={subitem.link}
+                            className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-main transition-colors"
                           >
                             {subitem.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
                   </div>
                 ))}
               </div>
-              
-              <div className='flex gap-5 text-xl'>
-                <FaFacebook className="hover:text-blue-600 cursor-pointer" />
-                <FaLinkedin className="hover:text-blue-600 cursor-pointer" />
-                <FaInstagram className="hover:text-blue-600 cursor-pointer" />
+
+              <div className="flex gap-5 text-xl">
+                <FaFacebook className="hover:text-main cursor-pointer" />
+                <FaLinkedin className="hover:text-main cursor-pointer" />
+                <FaInstagram className="hover:text-main cursor-pointer" />
               </div>
             </div>
 
             {/* Mobile menu button - shown only on mobile */}
-            <button 
-              className='md:hidden text-2xl focus:outline-none transition-all duration-150'
+            <button
+              className="md:hidden text-2xl focus:outline-none transition-all duration-150"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <IoCloseOutline /> : <CgMenuLeft />}
@@ -163,69 +185,75 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu - full screen overlay */}
-          <div 
+          <div
             ref={mobileMenuRef}
             className={`md:hidden fixed inset-0 w-full h-full bg-white z-40 transform transition-all duration-300 ease-in-out ${
-              mobileMenuOpen 
-                ? 'translate-y-0 opacity-100' 
-                : '-translate-y-full opacity-0 pointer-events-none'
+              mobileMenuOpen
+                ? "translate-y-0 opacity-100"
+                : "-translate-y-full opacity-0 pointer-events-none"
             }`}
             style={{ top: `${isSticky ? menuHeight : menuHeight}px` }}
           >
             <div className="relative w-11/12 mx-auto h-full overflow-y-auto pt-12 pb-8">
-
-              
               <div className="space-y-4">
                 {allMenus.map((menu, index) => (
-                  <div key={`mobile-${index}`} className="border-b border-gray-100 pb-2">
+                  <div
+                    key={`mobile-${index}`}
+                    className="border-b border-gray-100 pb-2"
+                  >
                     <div className="flex justify-between items-center">
-                      <a 
-                        href={menu.link} 
-                        className="block  text-gray-700 hover:text-blue-600 transition-colors text-b"
-                        onClick={() => !menu.submenu && setMobileMenuOpen(false)}
+                      <Link
+                        to={menu.link}
+                        className="block  text-gray-700 hover:text-main transition-colors text-b"
+                        onClick={() =>
+                          !menu.submenu && setMobileMenuOpen(false)
+                        }
                       >
                         {menu.label}
-                      </a>
+                      </Link>
                       {menu.submenu && (
-                        <button 
+                        <button
                           onClick={() => toggleMobileSubmenu(index)}
                           className="p-2 focus:outline-none"
                         >
-                          <FaChevronDown className={`text-xs transition-transform duration-200 ${
-                            mobileSubmenuOpen === index ? 'rotate-180' : ''
-                          }`} />
+                          <FaChevronDown
+                            className={`text-xs transition-transform duration-200 ${
+                              mobileSubmenuOpen === index ? "rotate-180" : ""
+                            }`}
+                          />
                         </button>
                       )}
                     </div>
-                    
+
                     {/* Mobile Submenu */}
                     {menu.submenu && (
-                      <div className={`pl-4 overflow-hidden ${
-                        mobileSubmenuOpen === index 
-                          ? 'max-h-96 opacity-100' 
-                          : 'max-h-0 opacity-0'
-                      } transition-all duration-300 ease-in-out`}
+                      <div
+                        className={`pl-4 overflow-hidden ${
+                          mobileSubmenuOpen === index
+                            ? "max-h-96 opacity-100"
+                            : "max-h-0 opacity-0"
+                        } transition-all duration-300 ease-in-out`}
                       >
                         {menu.submenu.map((subitem, subIndex) => (
-                          <a
+                          <Link
                             key={`mobile-sub-${subIndex}`}
-                            href={subitem.link}
-                            className="block py-3 text-gray-600 hover:text-blue-600 transition-colors"
+                            to={subitem.link}
+                            className="block py-3 text-gray-600 hover:text-main transition-colors"
                             onClick={() => setMobileMenuOpen(false)}
                           >
                             {subitem.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}
                   </div>
                 ))}
               </div>
-              
+
               <div className="flex gap-5 text-xl pt-8">
-                <FaFacebook className="hover:text-blue-600 cursor-pointer" />
-                <FaLinkedin className="hover:text-blue-600 cursor-pointer" />
-                <FaInstagram className="hover:text-blue-600 cursor-pointer" />
+                <FaFacebook className="hover:text-main cursor-pointer" />
+                <FaLinkedin className="hover:text-main cursor-pointer" />
+                <FaInstagram className="hover:text-main cursor-pointer" />
               </div>
             </div>
           </div>

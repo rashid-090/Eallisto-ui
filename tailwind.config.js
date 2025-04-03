@@ -26,10 +26,8 @@ module.exports = {
       },
 
       colors: {
-        'main': 'rgb(248, 177, 51)',
-        'main-hover': '#ae7a2c',
-        'secondary': "#00756b",
-        'secondary-hover': "#00413c"
+        'main': '#23a639',
+        'main-hover': '#0d8b22',
       },
       fontFamily: {
         // light: ['poppins-light', 'sans-serif'],

@@ -9,15 +9,15 @@ html {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* ::-moz-selection { 
+::-moz-selection { 
 color: #fff;
-background: #009A92;
+background: #23a639;
 }
 
 ::selection {
 color: #fff;
-background: #009A92;
-} */
+background: #23a639;
+}
 
 body {
   /* max-width: 1550px; */
