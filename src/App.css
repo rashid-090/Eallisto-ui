@@ -49,7 +49,6 @@ input,
 textarea,
 select {
   outline: none;
-  color: gray;
 }
 
 input,

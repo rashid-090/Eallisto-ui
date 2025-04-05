@@ -12,19 +12,21 @@ import { Link } from "react-router-dom";
 
 const allMenus = [
   { label: `Home`, link: `/` },
-  { label: `About Us`, link: `/` },
+  { label: `About Us`, link: `/about-us` },
   {
     label: `Products`,
     link: `/products`,
     submenu: [
-      { label: `Energy Portal`, link: `/` },
-      { label: `Power Grid Solutions`, link: `/` },
-      { label: `Renewable Energy Services`, link: `/` },
-      { label: `Transmission & Distribution Solutions`, link: `/` },
-      { label: `Consulting & Advisory Services`, link: `/` },
+      { label: `Energy Portal`, link: `/product/:title` },
+      { label: `Power Grid Solutions`, link: `/product/:title` },
+      { label: `Renewable Energy Services`, link: `/product/:title` },
+      { label: `Transmission & Distribution Solutions`, link: `/product/:title` },
+      { label: `Consulting & Advisory Services`, link: `/product/:title` },
     ],
   },
-  { label: `Contact Us`, link: `/` },
+  { label: `Investor Relations`, link: `/investor-relations` },
+  { label: `Sustainability & ESG`, link: `/sustainability-and-esg` },
+  { label: `Career`, link: `/career` },
 ];
 
 const Header = () => {
@@ -37,6 +39,10 @@ const Header = () => {
   const submenuTimeout = useRef(null);
   const headerRef = useRef(null);
   const mobileMenuRef = useRef(null);
+
+  mobileMenuOpen
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "unset");
 
   // Measure menu height and set up scroll listener
   useEffect(() => {
@@ -101,15 +107,16 @@ const Header = () => {
         <div
           ref={menuRef}
           className={`w-full flex items-center ${
-            isSticky ? "bg-white xl:bg-gray-100" : "bg-white"
-          } transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+            isSticky ? "bg-white" : "bg-white"
+          } transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-50 ${
             isSticky
-              ? "fixed top-0 left-0 shadow-sm z-50 h-[8vh]"
-              : "relative h-[10vh]"
+              ? "fixed top-0 left-0 shadow-sm z-50 h-[7vh] md:h-[6vh] xl:h-[8vh]"
+              : "relative h-[7vh] md:h-[6vh] xl:h-[10vh]"
           }`}
         >
-          <div className="w-11/12 xl:w-10/12 mx-auto flex justify-between items-center">
+          <div className="w-11/12 mx-auto flex justify-between items-center">
             {/* Logo - shown on all devices */}
+            <Link to={'/'}>
             <img
               className={`${
                 isSticky ? "h-9 xl:h-10" : "h-8 xl:h-12"
@@ -117,84 +124,43 @@ const Header = () => {
               src={Logo}
               alt=""
             />
+            </Link>
 
-            {/* Desktop Menu and Social Icons */}
-            <div className="hidden md:flex items-center gap-20">
-              <div
-                className="flex gap-8 relative"
-                onMouseLeave={handleMenuLeave}
+            <div className="flex items-center gap-5">
+              <div className="flex gap-10">
+                <Link
+                  to={"/contact-us"}
+                  className="text-xs md:text-base bg-main hover:bg-main-hover duration-200 text-white px-3 xl:px-5 py-2 xl:py-2.5 rounded-full"
+                >
+                  Contact Us
+                </Link>
+                <div className="hidden md:flex gap-5 items-center text-xl">
+                  <FaFacebook className="hover:text-main cursor-pointer" />
+                  <FaLinkedin className="hover:text-main cursor-pointer" />
+                  <FaInstagram className="hover:text-main cursor-pointer" />
+                </div>
+              </div>
+              {/* Mobile menu button - shown only on mobile */}
+              <button
+                className="md:hidden text-2xl focus:outline-none transition-all duration-150"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
-                {allMenus.map((menu, index) => (
-                  <div
-                    key={`desktop-${index}`}
-                    className="relative group"
-                    onMouseEnter={() => handleMenuHover(index)}
-                  >
-                    <Link
-                      to={menu.link}
-                      className="flex items-center gap-1 text-gray-700 hover:text-main transition-colors"
-                    >
-                      {menu.label}
-                      {menu.submenu && (
-                        <FaChevronDown
-                          className={`text-xs transition-transform duration-200 ${
-                            activeSubmenu === index ? "rotate-180" : ""
-                          }`}
-                        />
-                      )}
-                    </Link>
-
-                    {/* Desktop Submenu */}
-                    {menu.submenu && (
-                      <div
-                        className={`absolute left-0 top-full mt-2 w-fit text-nowrap bg-white rounded-md shadow-lg py-1 z-50 ${
-                          activeSubmenu === index
-                            ? "opacity-100 translate-y-0 visible"
-                            : "opacity-0 -translate-y-2 invisible"
-                        } transition-all duration-300 ease-in-out`}
-                      >
-                        {menu.submenu.map((subitem, subIndex) => (
-                          <Link
-                            key={`desktop-sub-${subIndex}`}
-                            to={subitem.link}
-                            className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-main transition-colors"
-                          >
-                            {subitem.label}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              <div className="flex gap-5 text-xl">
-                <FaFacebook className="hover:text-main cursor-pointer" />
-                <FaLinkedin className="hover:text-main cursor-pointer" />
-                <FaInstagram className="hover:text-main cursor-pointer" />
-              </div>
+                {mobileMenuOpen ? <IoCloseOutline /> : <CgMenuLeft />}
+              </button>
             </div>
-
-            {/* Mobile menu button - shown only on mobile */}
-            <button
-              className="md:hidden text-2xl focus:outline-none transition-all duration-150"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <IoCloseOutline /> : <CgMenuLeft />}
-            </button>
           </div>
 
           {/* Mobile Menu - full screen overlay */}
           <div
             ref={mobileMenuRef}
-            className={`md:hidden fixed inset-0 w-full h-full bg-white z-40 transform transition-all duration-300 ease-in-out ${
+            className={`md:hidden fixed inset-0 w-full h-full overflow-y-scroll bg-white z-40 transform transition-all duration-300 ease-in-out ${
               mobileMenuOpen
-                ? "translate-y-0 opacity-100"
+                ? "translate-y-12 opacity-100"
                 : "-translate-y-full opacity-0 pointer-events-none"
             }`}
             style={{ top: `${isSticky ? menuHeight : menuHeight}px` }}
           >
-            <div className="relative w-11/12 mx-auto h-full overflow-y-auto pt-12 pb-8">
+            <div className="relative w-11/12 mx-auto h-full overflow-y-scroll pt-12 pb-24">
               <div className="space-y-4">
                 {allMenus.map((menu, index) => (
                   <div
@@ -256,6 +222,67 @@ const Header = () => {
                 <FaInstagram className="hover:text-main cursor-pointer" />
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div
+        ref={menuRef}
+        className={`w-full hidden md:flex justify-center border-t border-b ${
+          isSticky ? "bg-white" : "bg-white"
+        } transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          isSticky
+            ? "fixed top-20 md:top-16 xl:top-14 left-0 shadow-sm z-50 h-[4vh] md:h-[5vh] xl:h-[7vh]"
+            : "relative h-[4vh] md:h-[5vh] xl:h-[8vh]"
+        }`}
+      >
+        {/* Desktop Menu and Social Icons */}
+        <div className="hidden md:flex items-center gap-20">
+          <div
+            className="flex gap-6  xl:gap-14 relative"
+            onMouseLeave={handleMenuLeave}
+          >
+            {allMenus.map((menu, index) => (
+              <div
+                key={`desktop-${index}`}
+                className="relative group"
+                onMouseEnter={() => handleMenuHover(index)}
+              >
+                <Link
+                  to={menu.link}
+                  className="flex items-center gap-1 text-gray-700 hover:text-main transition-colors"
+                >
+                  {menu.label}
+                  {menu.submenu && (
+                    <FaChevronDown
+                      className={`text-xs transition-transform duration-200 ${
+                        activeSubmenu === index ? "rotate-180" : ""
+                      }`}
+                    />
+                  )}
+                </Link>
+
+                {/* Desktop Submenu */}
+                {menu.submenu && (
+                  <div
+                    className={`absolute left-0 top-full mt-2 w-fit text-nowrap bg-white rounded-md shadow-lg py-1 z-50 ${
+                      activeSubmenu === index
+                        ? "opacity-100 translate-y-0 visible"
+                        : "opacity-0 -translate-y-2 invisible"
+                    } transition-all duration-300 ease-in-out`}
+                  >
+                    {menu.submenu.map((subitem, subIndex) => (
+                      <Link
+                        key={`desktop-sub-${subIndex}`}
+                        to={subitem.link}
+                        className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-main transition-colors"
+                      >
+                        {subitem.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>

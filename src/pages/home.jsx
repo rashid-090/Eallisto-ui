@@ -17,6 +17,11 @@ import {
 } from "../assets";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
+import { MdEmail } from "react-icons/md";
+import { IoMdCall } from "react-icons/io";
+import { FaFacebook } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
 
 const abtData = [
   {
@@ -144,6 +149,7 @@ const Home = () => {
             <img
               className="hover:scale-105 duration-200 h-[500px] object-cover"
               src={Ealli11}
+              loading="lazy"
               alt=""
             />
           </div>
@@ -168,8 +174,8 @@ const Home = () => {
                 <img className="h-12 w-12 object-cover" src={dt.icon} alt="" />
               </div>
               <div className="w-full h-full">
-                <h4 className="text-lg font-semibold">{dt.title}</h4>
-                <p className="text-sm">{dt.sub}</p>
+                <h4 className="text-sm md:text-lg font-semibold">{dt.title}</h4>
+                <p className="text-xs md:text-sm">{dt.sub}</p>
               </div>
             </div>
           ))}
@@ -177,14 +183,14 @@ const Home = () => {
       </section>
 
       {/*  */}
-      <section className="w-full h-full py-10 xl:py-20">
-        <h2 className="w-11/12 xl:w-10/12 mx-auto text-3xl xl:text-5xl font-semibold">
+      <section className="w-11/12 xl:w-10/12 mx-auto h-full py-10 xl:py-20">
+        <h2 className=" text-3xl xl:text-5xl font-semibold">
           What is <span className="text-main">Eallisto Energies.</span>
         </h2>
-        <Marquee className="pt-10" pauseOnHover>
+        <Marquee className="mt-10" pauseOnHover>
           {marquData?.map((mq, i) => (
             <img
-              className="h-32 xl:h-52 object-cover mx-2 xl:mx-5"
+              className="h-32 xl:h-40 object-cover mx-2 "
               key={i}
               src={mq.image}
               alt=""
@@ -194,7 +200,7 @@ const Home = () => {
         <Marquee direction="right" pauseOnHover className="pt-5">
           {marquData?.map((mq, i) => (
             <img
-              className="h-32 xl:h-52 object-cover mx-2 xl:mx-5"
+              className="h-32 xl:h-40 object-cover mx-2 "
               key={i}
               loading="lazy"
               src={mq.image}
@@ -206,26 +212,91 @@ const Home = () => {
       {/*  */}
 
       {/*  */}
-      <section className="w-full h-[40vh] xl:h-[80vh] relative overflow-hidden">
+      <section className="w-full h-[40vh] xl:h-[60vh] relative overflow-hidden">
         <div className="w-full h-full absolute top-0 left-0 bg-[#0000007c]"></div>
         <img className="object-cover  w-full h-full" src={Ealli2} alt="" />
         <div className="text-white absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-center z-10 w-10/12 mx-auto flex flex-col items-center gap-3">
-          <h1 className="text-4xl xl:text-6xl font-medium">
-            Lorem ipsum dolor.
-          </h1>
+          <h1 className="text-4xl xl:text-6xl font-medium">Connect with us</h1>
           <p className="text-sm xl:text-base xl:px-40">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
             repellendus quidem numquam odio corporis consequuntur quibusdam
             adipisci fuga dolore debitis.
           </p>
-          <Link className="border border-white hover:bg-main hover:border-main hover:text-white duration-200 rounded-full px-7 py-2.5 w-fit">
-            Learn More
+          <Link
+            to={"/contact-us"}
+            className="border border-white hover:bg-main hover:border-main hover:text-white duration-200 rounded-full px-7 py-2.5 w-fit"
+          >
+            Contact us
           </Link>
+        </div>
+      </section>
+
+      <section className="w-full h-full relative py-10 xl:py-20">
+        <div className="w-11/12 xl:w-10/12 mx-auto relative grid grid-cols-1 md:grid-cols-2 bg-main border overflow-hidden">
+          <div className="p-5 xl:p-10 text-white h-full flex flex-col justify-center">
+            <h2 className="text-3xl xl:text-4xl uppercase font-medium">
+              contact us
+            </h2>
+            <div className="pt-10 flex flex-col gap-5">
+              <div className="flex flex-col gap-3">
+                <span className="flex items-center gap-3">
+                  <div className="bg-white h-8 w-8 grid place-items-center rounded-full"><MdEmail className="text-xl text-main" /></div>
+                  <p>Email</p>
+                </span>
+                <a href="#">examplemailid@gmail.com</a>
+              </div>
+              <div className="flex flex-col gap-3">
+                <span className="flex items-center gap-3">
+                  <div className="bg-white h-8 w-8 grid place-items-center rounded-full"><IoMdCall className="text-xl text-main" /></div>
+                  <p>Phone</p>
+                </span>
+                <a href="#">+91 8888 999 5587</a>
+              </div>
+              <div className="text-2xl flex gap-5">
+                <a href="#" className="bg-white h-8 w-8 grid place-items-center rounded-full"><FaFacebook className="text-xl text-main" /></a>
+                <a href="#" className="bg-white h-8 w-8 grid place-items-center rounded-full"><FaLinkedin className="text-xl text-main" /></a>
+                <a href="#" className="bg-white h-8 w-8 grid place-items-center rounded-full"><FaSquareXTwitter className="text-xl text-main" /></a>
+              </div>
+            </div>
+          </div>
+          <form className="grid grid-cols-1 md:grid-cols-2 bg-white gap-5 text-sm p-10 py-10 xl:py-24">
+            <input
+                type="text"
+                className="border-b h-10 p-3 pl-0 focus:outline-none focus:border-main transition-colors duration-300"
+                placeholder="Name"
+              />
+            <input
+              type="email"
+              className="border-b h-10 p-3 pl-0 focus:outline-none focus:border-main transition-colors duration-300"
+              placeholder="Email"
+            />
+            <input
+              type="number"
+              className="border-b h-10 p-3 pl-0 focus:outline-none focus:border-main transition-colors duration-300"
+              placeholder="Mobile"
+            />
+            <input
+              type="text"
+              className="border-b h-10 p-3 pl-0 focus:outline-none focus:border-main transition-colors duration-300"
+              placeholder="Subject"
+            />
+            <textarea
+              name=""
+              id=""
+              rows="5"
+              placeholder="Message"
+              className="border-b  p-3 pl-0 md:col-span-2 focus:outline-none focus:border-main transition-colors duration-300"
+            ></textarea>
+          </form>
         </div>
       </section>
       {/*  */}
     </>
   );
 };
+
+{
+  
+}
 
 export default Home;

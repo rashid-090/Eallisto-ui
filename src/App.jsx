@@ -1,32 +1,38 @@
-
-import './App.css'
+import "./App.css";
 import { ScrollToTop } from "react-router-scroll-to-top";
-import { lazy, Suspense, useState, useEffect} from "react";
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { createBrowserRouter, RouterProvider, Outlet, useLocation } from "react-router-dom";
+import { lazy, Suspense, useState, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 
+import { Header, Footer, Loading } from "./components";
 
-import {Header, Footer} from './components';
-
+const PNF = lazy(() => import("./pages/pagenot"));
 const Home = lazy(() => import("./pages/home"));
 const About = lazy(() => import("./pages/About"));
 const Product = lazy(() => import("./pages/Product"));
 const ProductDetails = lazy(() => import("./pages/ProductDetails"));
+const InvestorRelations = lazy(() => import("./pages/InvestorRelations"));
+const SustainabilityESG = lazy(() => import("./pages/Sustainability-esg"));
+const Career = lazy(() => import("./pages/Career"));
 const Contact = lazy(() => import("./pages/Contact"));
 
 const Layout = () => {
-  return(
+  return (
     <div className="app 2xl:max-w-[2500px] mx-auto">
-       <ToastContainer position='bottom-right' theme='dark'/>
-      <Header/>
+      <ToastContainer position="bottom-right" theme="dark" />
+      <Header />
       <ScrollToTop />
       <Outlet />
-      <Footer/>
+      <Footer />
     </div>
-  )
-}
-
+  );
+};
 
 const router = createBrowserRouter([
   {
@@ -35,66 +41,100 @@ const router = createBrowserRouter([
     children: [
       {
         path: "*",
-        element: (
-          <Suspense fallback={<p>loading</p>}>
-            not found
-          </Suspense>
-        ),
+        element: <Suspense fallback={<Loading />}><PNF/></Suspense>,
       },
       {
         path: "/",
         element: (
-          <Suspense fallback={<p>loading</p>}>
-            <Home/>
+          <Suspense fallback={<Loading />}>
+            <Home />
           </Suspense>
         ),
       },
       {
-        path: "/about",
+        path: "/about-us",
         element: (
-          <Suspense fallback={<p>loading</p>}>
-            <About/>
+          <Suspense fallback={<Loading />}>
+            <About />
           </Suspense>
         ),
       },
       {
-        path: "/product",
+        path: "/products",
         element: (
-          <Suspense fallback={<p>loading</p>}>
-            <Product/>
+          <Suspense fallback={<Loading />}>
+            <Product />
           </Suspense>
         ),
       },
       {
-        path: "/product/:title",
+        path: "/product/:slug",
         element: (
-          <Suspense fallback={<p>loading</p>}>
-            <ProductDetails/>
+          <Suspense fallback={<Loading />}>
+            <ProductDetails />
           </Suspense>
         ),
       },
       {
-        path: "/contact",
+        path: "/investor-relations",
         element: (
-          <Suspense fallback={<p>loading</p>}>
-            <Contact/>
+          <Suspense fallback={<Loading />}>
+            <InvestorRelations />
           </Suspense>
         ),
       },
-      
+      {
+        path: "/sustainability-and-esg",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <SustainabilityESG />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/career",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Career />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/contact-us",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Contact />
+          </Suspense>
+        ),
+      },
     ],
   },
-]);   
-
-
+]);
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    // Simulate loading time (you can remove this in production)
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <>
+      <Loading />
+      </>
+    );
+  }
 
   return (
     <>
-   <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

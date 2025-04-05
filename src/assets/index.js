@@ -1,4 +1,5 @@
 import Logo from './logo/ealistologo.png'
+import Logowebp from './logo/ealistologo.webp'
 import BannerBg from './images/eallistobg.webp'
 import Bgthumb from './images/vidthumb.webp'
 import Bgvideo from './video/ealistobg.mp4';
@@ -17,5 +18,5 @@ import Ealli11 from './images/eallist11.webp';
 
 
 export{
-    BannerBg,Bgvideo,Bgthumb,Logo,Ealli1,Ealli2,Ealli3,Ealli4,Ealli5,Ealli6,Ealli7,Ealli8,Ealli9,Ealli10,Ealli11
+    BannerBg,Bgvideo,Bgthumb,Logo,Ealli1,Ealli2,Ealli3,Ealli4,Ealli5,Ealli6,Ealli7,Ealli8,Ealli9,Ealli10,Ealli11,Logowebp
 }
