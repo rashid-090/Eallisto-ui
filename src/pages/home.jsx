@@ -22,6 +22,7 @@ import { IoMdCall } from "react-icons/io";
 import { FaFacebook } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
+import { Products } from '../components'
 
 const abtData = [
   {
@@ -170,8 +171,8 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 gap-x-10 pt-10">
           {abtData?.map((dt, i) => (
             <div className="shadow-xl h-full bg-white border border-gray-100 rounded-xl p-3 py-5 flex items-center gap-5">
-              <div className="-ml-5 xl:-ml-7 h-20 w-20 aspect-square bg-main grid place-items-center rounded-xl shadow-md">
-                <img className="h-12 w-12 object-cover" src={dt.icon} alt="" />
+              <div className="-ml-5 xl:-ml-7 h-14 w-14 xl:h-20 xl:w-20 aspect-square bg-main grid place-items-center rounded-xl shadow-md">
+                <img className="h-10 w-10 xl:h-11 xl:w-11 object-cover" src={dt.icon} alt="" />
               </div>
               <div className="w-full h-full">
                 <h4 className="text-sm md:text-lg font-semibold">{dt.title}</h4>
@@ -183,6 +184,11 @@ const Home = () => {
       </section>
 
       {/*  */}
+
+      <Products/>
+      {/*  */}
+
+      {/*  */}
       <section className="w-11/12 xl:w-10/12 mx-auto h-full py-10 xl:py-20">
         <h2 className=" text-3xl xl:text-5xl font-semibold">
           What is <span className="text-main">Eallisto Energies.</span>
@@ -190,7 +196,7 @@ const Home = () => {
         <Marquee className="mt-10" pauseOnHover>
           {marquData?.map((mq, i) => (
             <img
-              className="h-32 xl:h-40 object-cover mx-2 "
+              className="h-20 md:h-32 xl:h-40 object-cover mx-2 "
               key={i}
               src={mq.image}
               alt=""
@@ -200,7 +206,7 @@ const Home = () => {
         <Marquee direction="right" pauseOnHover className="pt-5">
           {marquData?.map((mq, i) => (
             <img
-              className="h-32 xl:h-40 object-cover mx-2 "
+              className="h-20 md:h-32 xl:h-40 object-cover mx-2 "
               key={i}
               loading="lazy"
               src={mq.image}

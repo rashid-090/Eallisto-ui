@@ -99,10 +99,10 @@ const Product = () => {
           <h2 className="text-3xl font-bold mb-6">Ready to transform your energy infrastructure?</h2>
           <p className="text-xl mb-8">Our experts are standing by to help you find the right solutions for your needs.</p>
           <div className="flex flex-col md:flex-row justify-center gap-4">
-            <Link to="/contact-us" className="bg-white text-main hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg text-lg transition duration-300">
+            <Link to="/contact-us" className="bg-white text-main hover:bg-gray-100 font-semibold py-2 px-8 rounded-full xl:text-lg transition duration-300">
               Contact Us
             </Link>
-            <Link to="/contact-us" className="bg-transparent border-2 border-white hover:bg-white hover:text-main font-semibold py-3 px-8 rounded-lg text-lg transition duration-300">
+            <Link to="/contact-us" className="bg-transparent border-2 border-white hover:bg-white hover:text-main font-semibold py-2 px-8 rounded-full xl:text-lg transition duration-300">
               Request Demo
             </Link>
           </div>

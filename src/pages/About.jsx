@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 
 const AboutUs = () => {
   return (
+    <>
     <section className="w-11/12 xl:w-10/12 mx-auto h-full py-10 xl:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 gap-x-20">
           <div className="md:col-span-2 flex flex-col gap-5 h-full justify-center">
@@ -36,6 +37,22 @@ const AboutUs = () => {
           </div>
         </div>
       </section>
+       {/* CTA Section */}
+       <section className="py-10 px-4 bg-main text-white">
+       <div className="max-w-4xl mx-auto text-center">
+         <h2 className="text-3xl font-bold mb-6">Ready to transform your energy infrastructure?</h2>
+         <p className="text-xl mb-8">Our experts are standing by to help you find the right solutions for your needs.</p>
+         <div className="flex flex-col md:flex-row justify-center gap-4">
+           <Link to="/contact-us" className="bg-white text-main hover:bg-gray-100 font-semibold py-2 px-8 rounded-full xl:text-lg transition duration-300">
+             Contact Us
+           </Link>
+           <Link to="/contact-us" className="bg-transparent border-2 border-white hover:bg-white hover:text-main font-semibold py-2 px-8 rounded-full xl:text-lg transition duration-300">
+             Request Demo
+           </Link>
+         </div>
+       </div>
+     </section>
+    </>
   )
 }
 

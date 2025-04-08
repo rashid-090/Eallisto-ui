@@ -9,6 +9,7 @@ import { CgMenuLeft } from "react-icons/cg";
 import { IoCloseOutline } from "react-icons/io5";
 import { Logo } from "../assets";
 import { Link } from "react-router-dom";
+import { products } from "./data";
 
 const allMenus = [
   { label: `Home`, link: `/` },
@@ -16,13 +17,10 @@ const allMenus = [
   {
     label: `Products`,
     link: `/products`,
-    submenu: [
-      { label: `Energy Portal`, link: `/product/:title` },
-      { label: `Power Grid Solutions`, link: `/product/:title` },
-      { label: `Renewable Energy Services`, link: `/product/:title` },
-      { label: `Transmission & Distribution Solutions`, link: `/product/:title` },
-      { label: `Consulting & Advisory Services`, link: `/product/:title` },
-    ],
+    submenu: products.map(product => ({
+      label: product.title,
+      link: `/product/${product.slug}`
+    }))
   },
   { label: `Investor Relations`, link: `/investor-relations` },
   { label: `Sustainability & ESG`, link: `/sustainability-and-esg` },
