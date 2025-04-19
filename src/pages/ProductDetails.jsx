@@ -18,45 +18,34 @@ const ProductDetails = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-main to-main-hover text-white py-14 px-4">
+      <section className="bg-gradient-to-r from-main to-main-hover text-white py-10 px-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-medium mb-6">{product.title}</h1>
-          <p className="text-xl max-w-3xl">{product.description}</p>
+          <h1 className="text-2xl md:text-4xl font-medium mb-3">{product.title}</h1>
+          <p className="text-sm md:text-xl max-w-3xl">{product.description}</p>
         </div>
       </section>
 
       {/* Product Details */}
-      <section className="py-16 px-4 max-w-7xl mx-auto">
+      <section className="py-5 xl:py-16 px-4 max-w-7xl mx-auto">
         <div className="bg-white rounded-xl shadow-md overflow-hidden">
           <div className="md:flex">
             {/* Main Product Image */}
-            <div className="md:w-1/2 p-6 md:p-8">
+            <div className="md:w-1/2 p-3 md:p-8">
               <img 
                 src={product.image} 
                 alt={product.title} 
                 className="w-full h-auto rounded-lg shadow-md"
               />
               
-              {/* Product Gallery */}
-              <div className="mt-6 grid grid-cols-3 gap-4">
-                {product.gallery && product.gallery.map((img, index) => (
-                  <img 
-                    key={index}
-                    src={img} 
-                    alt={`${product.title} ${index + 1}`} 
-                    className="w-full h-24 object-cover rounded-md cursor-pointer hover:opacity-80 transition-opacity"
-                  />
-                ))}
-              </div>
+              
             </div>
             
             {/* Product Info */}
             <div className="md:w-1/2 p-6 md:p-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Product Details</h2>
               
               <div className="mb-8">
                 <h3 className="text-xl font-semibold text-gray-800 mb-3">Overview</h3>
-                <p className="text-gray-600">{product.details.overview}</p>
+                <p className="text-gray-600">{product?.details.overview}</p>
               </div>
               
               <div className="mb-8">
@@ -73,27 +62,7 @@ const ProductDetails = () => {
                 </ul>
               </div>
               
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Specifications</h3>
-                <ul className="space-y-2">
-                  {product.details.specifications.map((spec, index) => (
-                    <li key={index} className="flex">
-                      <span className="text-gray-700">• {spec}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">Benefits</h3>
-                <ul className="space-y-2">
-                  {product.details.benefits.map((benefit, index) => (
-                    <li key={index} className="flex">
-                      <span className="text-gray-700">• {benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            
               
               <Link 
                 to="/contact-us"

@@ -10,6 +10,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { Logo } from "../assets";
 import { Link } from "react-router-dom";
 import { products } from "./data";
+import { SlEnergy } from "react-icons/sl";
 
 const allMenus = [
   { label: `Home`, link: `/` },
@@ -25,6 +26,7 @@ const allMenus = [
   { label: `Investor Relations`, link: `/investor-relations` },
   { label: `Sustainability & ESG`, link: `/sustainability-and-esg` },
   { label: `Career`, link: `/career` },
+  { label: `Contact Us`, link: `/contact-us` },
 ];
 
 const Header = () => {
@@ -115,28 +117,24 @@ const Header = () => {
           <div className="w-11/12 mx-auto flex justify-between items-center">
             {/* Logo - shown on all devices */}
             <Link to={'/'}>
-            <img
-              className={`${
-                isSticky ? "h-9 xl:h-10" : "h-8 xl:h-12"
-              } transition-all duration-500 object-contain`}
-              src={Logo}
-              alt=""
-            />
+              <img
+                className={`${
+                  isSticky ? "h-9 xl:h-10" : "h-8 xl:h-12"
+                } transition-all duration-500 object-contain`}
+                src={Logo}
+                alt=""
+              />
             </Link>
 
             <div className="flex items-center gap-5">
               <div className="flex gap-10">
                 <Link
                   to={"/contact-us"}
-                  className="text-xs md:text-base bg-main hover:bg-main-hover duration-200 text-white px-3 xl:px-5 py-2 xl:py-2.5 rounded-full"
+                  className="flex items-center gap-1 text-xs md:text-base bg-main hover:bg-main-hover duration-200 text-white px-5 xl:px-7 py-2 xl:py-2.5 rounded-full"
                 >
-                  Contact Us
+                  Get Start <SlEnergy/>
                 </Link>
-                <div className="hidden md:flex gap-5 items-center text-xl">
-                  <FaFacebook className="hover:text-main cursor-pointer" />
-                  <FaLinkedin className="hover:text-main cursor-pointer" />
-                  <FaInstagram className="hover:text-main cursor-pointer" />
-                </div>
+           
               </div>
               {/* Mobile menu button - shown only on mobile */}
               <button
@@ -168,7 +166,7 @@ const Header = () => {
                     <div className="flex justify-between items-center">
                       <Link
                         to={menu.link}
-                        className="block  text-gray-700 hover:text-main transition-colors text-b"
+                        className="block text-gray-700 hover:text-main transition-colors text-b"
                         onClick={() =>
                           !menu.submenu && setMobileMenuOpen(false)
                         }
@@ -236,7 +234,7 @@ const Header = () => {
         {/* Desktop Menu and Social Icons */}
         <div className="hidden md:flex items-center gap-20">
           <div
-            className="flex gap-6  xl:gap-14 relative"
+            className="flex gap-6 xl:gap-10 relative"
             onMouseLeave={handleMenuLeave}
           >
             {allMenus.map((menu, index) => (
@@ -273,6 +271,7 @@ const Header = () => {
                         key={`desktop-sub-${subIndex}`}
                         to={subitem.link}
                         className="block px-4 py-2 text-gray-700 hover:bg-green-50 hover:text-main transition-colors"
+                        onClick={() => setActiveSubmenu(null)}
                       >
                         {subitem.label}
                       </Link>

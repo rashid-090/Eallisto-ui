@@ -8,25 +8,23 @@ const AboutUs = () => {
     <section className="w-11/12 xl:w-10/12 mx-auto h-full py-10 xl:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 gap-x-20">
           <div className="md:col-span-2 flex flex-col gap-5 h-full justify-center">
-            <h2 className="text-3xl xl:text-5xl font-semibold">
-              <span className="text-main">About Eallisto</span>
-              <br className="hidden xl:block" /> Group & Eallisto
-              <br className="hidden xl:block" /> Energies.
+          <h2 className="text-3xl xl:text-5xl font-semibold">
+              <span className="text-main">Our Roots, Our Ascent:</span>
+              <br className="hidden xl:block" />The Eallisto Energies Story
             </h2>
-            <p>
-              Eallisto is a diversified business group with multiple brands
-              operating under its umbrella, including Eallisto Energies,
-              Eallisto Projects, Eallisto Holdings, Eallisto Beverages, and
-              more. Each brand specializes in distinct sectors, contributing to
-              the group's overall vision of innovation and excellence.
-            </p>
-            <p>
-              As part of our expansion, we are now presenting the Eallisto
-              Energies project for website development.
-            </p>
-            <Link className="border border-main hover:bg-main hover:text-white text-main duration-200 rounded-full px-7 py-2.5 w-fit">
+            <p>At Eallisto Energies, the mission transcends the mere provision of energy; the entity stands as an architect of a sustainable future. As a pivotal extension of the esteemed Eallisto Group, this organization inherits a legacy of innovation and excellence—principles meticulously applied to the critical domain of renewable energy.</p>
+            <div className='pt-3'>
+              <h3 className='text-xl font-medium'>Our <span className='text-main'>Vision</span></h3>
+              <p>To be a leading catalyst in the global transition towards a zero-carbon economy, making sustainable energy accessible and economically viable for all.</p>
+            </div>
+            <div className='pt-3'>
+              <h3 className='text-xl font-medium'>Our <span className='text-main'>Mission</span></h3>
+              <p>To deliver comprehensive, reliable, and cutting-edge renewable energy solutions that empower our clients, protect our planet, and generate lasting value for our stakeholders.</p>
+            </div>
+          
+            {/* <Link className="border border-main hover:bg-main hover:text-white text-main duration-200 rounded-full px-7 py-2.5 w-fit">
               Learn More
-            </Link>
+            </Link> */}
           </div>
           <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
             <img

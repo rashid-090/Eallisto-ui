@@ -16,7 +16,10 @@ import Ealli9 from './images/eallist9.webp';
 import Ealli10 from './images/eallist10.webp';
 import Ealli11 from './images/eallist11.webp';
 
+import Invstbg from './images/Investor Relations.webp';
+import Sustabg from './images/Sustainability.webp';
+
 
 export{
-    BannerBg,Bgvideo,Bgthumb,Logo,Ealli1,Ealli2,Ealli3,Ealli4,Ealli5,Ealli6,Ealli7,Ealli8,Ealli9,Ealli10,Ealli11,Logowebp
+    BannerBg,Bgvideo,Bgthumb,Logo,Ealli1,Ealli2,Ealli3,Ealli4,Ealli5,Ealli6,Ealli7,Ealli8,Ealli9,Ealli10,Ealli11,Logowebp,Invstbg,Sustabg
 }

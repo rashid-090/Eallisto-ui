@@ -8,20 +8,20 @@ const Product = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-main to-main-hover text-white py-14 px-4">
+      <section className="bg-gradient-to-r from-main to-main-hover text-white py-10 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-medium mb-6">Energy Solutions for a Sustainable Future</h1>
-          <p className="text-xl max-w-3xl mx-auto">
+          <h1 className="text-2xl md:text-4xl font-medium mb-3">Energy Solutions for a Sustainable Future</h1>
+          <p className="text-sm xl:text-xl max-w-3xl mx-auto">
             Innovative products and services designed to optimize energy management and distribution
           </p>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="py-16 px-4 max-w-7xl mx-auto">
+      <section className="py-10 px-4 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
-            <div key={product.id} className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div key={product.id} className="bg-white  shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="h-48 overflow-hidden">
                 <img 
                   src={product.image} 
