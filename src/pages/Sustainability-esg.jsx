@@ -11,10 +11,10 @@ const SustainabilityAndEasg = () => {
           src={Sustabg}
           alt=""
         />
-        <div className="absolute top-0 left-0 flex flex-col  justify-center text-center items-center z-20 text-white h-full">
+        <div className="absolute top-0 left-0 flex flex-col  justify-center text-center items-center w-full z-20 text-white h-full">
           <div className="w-[95%] md:w-[80%] xl:w-[70%] mx-auto">
-            <h2 className="text-2xl xl:text-5xl font-semibold">
-              Our Enduring Promise: Sustainability & Responsible Growth ESG
+            <h2 className="text-2xl xl:text-4xl font-semibold">
+              Our Enduring Promise: Sustainability &<br/> Responsible Growth ESG
             </h2>
           </div>
         </div>

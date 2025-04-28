@@ -98,7 +98,7 @@ const Header = () => {
   }, []);
 
   return (
-    <nav ref={headerRef}>
+    <nav ref={headerRef} className="bg-white w-full">
       <div className="bg-white w-full">
         {/* Menu placeholder to prevent content jump */}
         <div style={{ height: isSticky ? menuHeight : 0 }} aria-hidden="true" />
@@ -110,8 +110,8 @@ const Header = () => {
             isSticky ? "bg-white" : "bg-white"
           } transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-50 ${
             isSticky
-              ? "fixed top-0 left-0 shadow-sm z-50 h-[7vh] md:h-[6vh] xl:h-[8vh]"
-              : "relative h-[7vh] md:h-[6vh] xl:h-[10vh]"
+              ? "fixed top-0 left-0 shadow-sm z-50 h-[8vh] lg:h-[9vh]"
+              : "relative h-[10vh] lg:h-[9vh]"
           }`}
         >
           <div className="w-11/12 mx-auto flex justify-between items-center">
@@ -119,7 +119,7 @@ const Header = () => {
             <Link to={'/'}>
               <img
                 className={`${
-                  isSticky ? "h-9 xl:h-10" : "h-8 xl:h-12"
+                  isSticky ? "h-6 xl:h-10" : "h-7 xl:h-11"
                 } transition-all duration-500 object-contain`}
                 src={Logo}
                 alt=""
@@ -130,7 +130,7 @@ const Header = () => {
               <div className="flex gap-10">
                 <Link
                   to={"/contact-us"}
-                  className="flex items-center gap-1 text-xs md:text-base bg-main hover:bg-main-hover duration-200 text-white px-5 xl:px-7 py-2 xl:py-2.5 rounded-full"
+                  className={`${isSticky ? 'scale-90' : ''} h-8 xl:h-10 transition-all px-3 flex items-center gap-1 text-xs md:text-sm xl:text-base bg-main hover:bg-main-hover duration-200 text-white   rounded-full`}
                 >
                   Get Start <SlEnergy/>
                 </Link>
@@ -138,7 +138,7 @@ const Header = () => {
               </div>
               {/* Mobile menu button - shown only on mobile */}
               <button
-                className="md:hidden text-2xl focus:outline-none transition-all duration-150"
+                className="lg:hidden text-2xl focus:outline-none transition-all duration-150"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               >
                 {mobileMenuOpen ? <IoCloseOutline /> : <CgMenuLeft />}
@@ -149,9 +149,9 @@ const Header = () => {
           {/* Mobile Menu - full screen overlay */}
           <div
             ref={mobileMenuRef}
-            className={`md:hidden fixed inset-0 w-full h-full overflow-y-scroll bg-white z-40 transform transition-all duration-300 ease-in-out ${
+            className={`xl:hidden fixed inset-0 w-full h-full overflow-y-scroll bg-white z-40 transform transition-all duration-300 ease-in-out ${
               mobileMenuOpen
-                ? "translate-y-12 opacity-100"
+                ? "translate-y-11 md:translate-y-16 opacity-100"
                 : "-translate-y-full opacity-0 pointer-events-none"
             }`}
             style={{ top: `${isSticky ? menuHeight : menuHeight}px` }}
@@ -223,16 +223,16 @@ const Header = () => {
       </div>
       <div
         ref={menuRef}
-        className={`w-full hidden md:flex justify-center border-t border-b ${
+        className={`w-full hidden lg:flex justify-center border-t border-b ${
           isSticky ? "bg-white" : "bg-white"
         } transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
           isSticky
-            ? "fixed top-20 md:top-16 xl:top-14 left-0 shadow-sm z-50 h-[4vh] md:h-[5vh] xl:h-[7vh]"
-            : "relative h-[4vh] md:h-[5vh] xl:h-[8vh]"
+            ? "fixed top-20 md:top-14 lg:top-11 xl:top-[3.8rem] 2xl:top-[4rem] left-0 shadow-sm z-50 h-[4vh] md:h-[5vh] lg:h-[8vh]"
+            : "relative h-[4vh] md:h-[5vh] lg:h-[8vh]"
         }`}
       >
         {/* Desktop Menu and Social Icons */}
-        <div className="hidden md:flex items-center gap-20">
+        <div className="hidden lg:flex items-center gap-20">
           <div
             className="flex gap-6 xl:gap-10 relative"
             onMouseLeave={handleMenuLeave}

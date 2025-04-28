@@ -6,21 +6,61 @@ const InvestorRelations = () => {
     <>
       <div className="w-full h-full relative overflow-hidden">
         <div className="absolute top-0 left-0 bg-[#0000006c] w-full h-full z-10"></div>
-        <img className="w-full object-cover h-[300px] xl:h-[400px]" src={Invstbg} alt="" />
-        <div className="absolute top-0 left-0 flex flex-col  justify-center text-center items-center z-20 text-white h-full">
-          <div className="w-[95%] md:w-[80%] xl:w-[70%] mx-auto">
-            <h2 className="text-2xl xl:text-5xl font-semibold">
-              Investing in Tomorrow's Energy Landscape: Partner with Eallisto
-            </h2>
-            <p className="text-sm md:text-base xl:px-10 pt-5">
-              Eallisto Energies off ers a compelling vista for investors seeking
-              both robust returns and the profound satisfaction of contributing
-              to a planet powered by clean energy.
-            </p>
+        <img
+          className="w-full object-cover h-[350px] xl:h-[450px]"
+          src={Invstbg}
+          alt=""
+        />
+        <div className="absolute top-0 left-0  flex w-full justify-center text-center items-center z-20 text-white h-full">
+          {/*  */}
+          <div className="w-full">
+            <div className="bg-white p-8 rounded-3xl shadow-md w-[90%] max-w-sm mx-auto">
+              <h2 className="text-2xl font-bold mb-6 text-center text-black">Login</h2>
+              <form>
+                <div className="mb-4">
+             
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Name"
+                    className="w-full p-2 border rounded"
+                    required
+                  />
+                </div>
+                <div className="mb-6">
+          
+                  <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    className="w-full p-2 border rounded"
+                    required
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-main text-white p-2 rounded hover:bg-main-hover"
+                >
+                  Login
+                </button>
+              </form>
+            </div>
           </div>
+          {/*  */}
         </div>
       </div>
       <div className="w-11/12 xl:w-10/12 mx-auto py-10 flex flex-col gap-8 xl:text-lg">
+        <div className="w-full">
+          <h2 className="text-2xl xl:text-4xl font-semibold">
+            Investing in Tomorrow's Energy Landscape:
+            <br /> Partner with Eallisto
+          </h2>
+          <p className="text-sm md:text-base pt-5">
+            Eallisto Energies off ers a compelling vista for investors seeking
+            both robust returns and the profound satisfaction of contributing to
+            a planet powered by clean energy.
+          </p>
+        </div>
         <div className="space-y-2">
           <h5 className="font-medium text-lg xl:text-2xl">
             A Sector Surging with Potential
@@ -32,7 +72,9 @@ const InvestorRelations = () => {
           </p>
         </div>
         <div className="space-y-2">
-          <h5 className="font-medium text-lg xl:text-2xl">Strategic Land Visionaries</h5>
+          <h5 className="font-medium text-lg xl:text-2xl">
+            Strategic Land Visionaries
+          </h5>
           <p>
             Our proactive approach to identifying and cultivating prime land for
             large-scale solar endeavors ensures a vibrant and impactful
@@ -80,17 +122,16 @@ const InvestorRelations = () => {
           </p>
         </div>
         <div className="space-y-2">
-        <h5 className="font-medium text-lg xl:text-2xl">
-        Explore Partnership Pathways
-        </h5>
-        <h5 className="font-medium text-lg xl:text-2xl">
-        Unveil Our Investor Blueprint
-        </h5>
-        <h5 className="font-medium text-lg xl:text-2xl">
-        Connect with Our Investment Visionaries
-        </h5>
-
-      </div>
+          <h5 className="font-medium text-lg xl:text-2xl">
+            Explore Partnership Pathways
+          </h5>
+          <h5 className="font-medium text-lg xl:text-2xl">
+            Unveil Our Investor Blueprint
+          </h5>
+          <h5 className="font-medium text-lg xl:text-2xl">
+            Connect with Our Investment Visionaries
+          </h5>
+        </div>
       </div>
     </>
   );
