@@ -6,12 +6,12 @@ module.exports = {
   ],
   theme: {
     screens: {
-      'xs': '250px',
-      'sm': '376px',
-      'md': '768px',
-      'lg': '1024px',
-      'xl': '1280px',
-      '2xl': '1536px'
+      'xs': '375px',    // Small phones (changed from 250px to standard mobile start)
+      'sm': '640px',    // Recommended Tailwind default (changed from 376px)
+      'md': '768px',    // Tablets (kept your value)
+      'lg': '1024px',   // Small laptops (kept your value)
+      'xl': '1280px',   // Desktops (kept your value)
+      '2xl': '1536px'   // Large screens (changed from 2500px to standard)
     },
 
     extend: {

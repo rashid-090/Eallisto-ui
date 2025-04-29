@@ -5,7 +5,7 @@ const InvestorRelations = () => {
   return (
     <>
       <div className="w-full h-full relative overflow-hidden">
-        <div className="absolute top-0 left-0 bg-[#0000006c] w-full h-full z-10"></div>
+        <div className="absolute top-0 left-0 bg-[#00000015] w-full h-full z-10"></div>
         <img
           className="w-full object-cover h-[350px] xl:h-[450px]"
           src={Invstbg}
