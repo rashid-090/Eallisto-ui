@@ -13,11 +13,11 @@ const Contact = () => {
       <section className="w-full h-full relative py-10">
         <ContactForm />
         <div className="w-11/12 xl:w-10/12 mx-auto py-10  gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+          
           <div className="flex flex-col gap-1 p-5 border-l">
             <h4 className="text-lg font-medium">Kerala</h4>
             <p className="text-sm text-gray-500">
-              12/78A2, Gujarathi Street, Calicut Beach, Kozhikode, Kerala 673001
-              India.
+              Hilite Business Park Phase- 2, 6th Floor Door Nos: 2/1149/I 218.
             </p>
           </div>
           <div className="flex flex-col gap-1 p-5 border-l">
@@ -34,19 +34,8 @@ const Contact = () => {
               Emirates.
             </p>
           </div>
-          <div className="flex flex-col gap-1 p-5 border-l">
-            <h4 className="text-lg font-medium">Corporate Office</h4>
-            <p className="text-sm text-gray-500">
-              Eallisto Group Building, Beach Rd, opp, Mohammed ali, Kozhikode,
-              Kerala 673003.
-            </p>
-          </div>
-          <div className="flex flex-col gap-1 p-5 border-l">
-            <h4 className="text-lg font-medium">Kozhikode</h4>
-            <p className="text-sm text-gray-500">
-              Hilite Business Park Phase- 2, 6th Floor Door Nos: 2/1149/I 218.
-            </p>
-          </div>
+         
+         
         </div>
         <div className="w-11/12 xl:w-10/12 mx-auto">
           <iframe

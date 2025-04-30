@@ -26,7 +26,7 @@ const allMenus = [
   { label: `Projects`, link: `/projects` },
   { label: `Investor Relations`, link: `/investor-relations` },
   { label: `Sustainability & ESG`, link: `/sustainability-and-esg` },
-  { label: `Career`, link: `/career` },
+  { label: `Career`, link: `https://jobs.eallisto.com` },
   { label: `Contact Us`, link: `/contact-us` },
 ];
 
@@ -103,15 +103,14 @@ const Header = () => {
       {/* Main header container */}
             <div className={`w-full bg-white z-50 transition-all duration-500 ease-in-out ${
         isSticky 
-          ? "fixed top-0 left-0 opacity-100 translate-y-0" 
-          : "relative opacity-100 translate-y-2"
+          ? "fixed top-0 left-0 opacity-100 xl:translate-y-0" 
+          : "relative opacity-100 xl:translate-y-2"
       }`}>
-
         {/* Top bar with logo and CTA */}
         <div className="w-11/12 mx-auto flex justify-between items-center h-[10vh] lg:h-[9vh]">
           <Link to={'/'}>
             <img
-              className={`${isSticky ? 'xl:h-10' : ' xl:h-11'} h-7 transition-all duration-500 object-contain`}
+              className={`${isSticky ? 'xl:h-10' : ' xl:h-11'} h-6  h-7 transition-all duration-500 object-contain`}
               src={Logo}
               alt="Company Logo"
             />
@@ -269,3 +268,5 @@ const Header = () => {
 };
 
 export default Header;
+
+

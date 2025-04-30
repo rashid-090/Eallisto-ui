@@ -96,8 +96,7 @@ const Footer = () => {
         <div>
           <p className="text-lg font-semibold">Address</p>
           <p className="pt-2 text-sm">
-            WeWork Latitude 9th Floor, RMZ Latitude Commercial Bellary Road,
-            Hebbal, Bengaluru, 560024, Karnataka
+          Hilite Business Park Phase- 2, 6th Floor Door Nos: 2/1149/I 218.
           </p>
           <div className="text-2xl flex gap-5 pt-5">
             <a

@@ -56,6 +56,27 @@ const Projects = () => {
       thumbnail: 'https://res.cloudinary.com/dichoxvts/image/upload/v1746013526/Screenshot_2025-04-30_171229_cbqbhd.png',
       description: 'Description for Project 2 highlighting its key features and development process.'
     },
+    { 
+      id: 7, 
+      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746020792/WhatsApp_Video_2025-04-30_at_19.12.57_ec0150c8_tywtdg.mp4`, 
+      title: 'Bengaluru Site',
+      thumbnail: 'https://res.cloudinary.com/dichoxvts/image/upload/v1746020736/Screenshot_2025-04-30_191400_jt694a.png',
+      description: 'Description for Project 2 highlighting its key features and development process.'
+    },
+    { 
+      id: 8, 
+      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746020787/WhatsApp_Video_2025-04-30_at_19.12.58_2dc4ac00_jw6hbg.mp4`, 
+      title: 'Bengaluru Site',
+      thumbnail: 'https://res.cloudinary.com/dichoxvts/image/upload/v1746020744/Screenshot_2025-04-30_191434_jfsxkp.png',
+      description: 'Description for Project 2 highlighting its key features and development process.'
+    },
+    { 
+      id: 9, 
+      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746020787/WhatsApp_Video_2025-04-30_at_19.13.56_01446f16_howzee.mp4`, 
+      title: 'Bengaluru Site',
+      thumbnail: 'https://res.cloudinary.com/dichoxvts/image/upload/v1746020737/Screenshot_2025-04-30_191508_bkmovr.png',
+      description: 'Description for Project 2 highlighting its key features and development process.'
+    },
 
     
   ];
@@ -138,6 +159,13 @@ const Projects = () => {
                   controls={true}
                   playing={lightboxOpen}
                   style={{ position: 'absolute', top: 0, left: 0 }}
+                  config={{
+                    file: {
+                      attributes: {
+                        controlsList: 'nodownload' // This disables the download button
+                      }
+                    }
+                  }}
                 />
               </div>
               <div className="p-4 bg-white dark:bg-gray-800">
