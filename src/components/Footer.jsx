@@ -75,6 +75,9 @@ const Footer = () => {
             <Link to={"/products"} className="hover:text-main duration-200">
               Products
             </Link>
+            <Link to={"/projects"} className="hover:text-main duration-200">
+              Projects
+            </Link>
             <Link to={"/contact-us"} className="hover:text-main duration-200">
               Contact Us
             </Link>

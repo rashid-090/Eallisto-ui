@@ -14,6 +14,22 @@ import {
   Ealli9,
   Ealli10,
   Ealli11,
+  Ealli12,
+  Ealli13,
+  Ealli14,
+  Ealli15,
+  Ealli16,
+  Ealli17,
+  Ealli18,
+  Ealli19,
+  Ealli20,
+  Ealli21,
+  Ealli22,
+  Ealli23,
+  Ealli24,
+  Ealli25,
+  Ealli26,
+
   Logo,
 } from "../assets";
 import { Link } from "react-router-dom";
@@ -104,50 +120,51 @@ const marquData = [
   {
     image: Ealli11,
   },
+  {
+    image: Ealli12,
+  },
+  {
+    image: Ealli14,
+  },
+  {
+    image: Ealli15,
+  },
+  {
+    image: Ealli16,
+  },
+  {
+    image: Ealli17,
+  },
+  {
+    image: Ealli19,
+  },
+  {
+    image: Ealli20,
+  },
+  {
+    image: Ealli21,
+  },
+  {
+    image: Ealli22,
+  },
+  {
+    image: Ealli23,
+  },
+  {
+    image: Ealli24,
+  },
+  {
+    image: Ealli25,
+  },
+  {
+    image: Ealli26,
+  },
+
 ];
 
 const Home = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
-  const [agreeTerms, setAgreeTerms] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Your EmailJS service ID, template ID, and Public Key
-    const serviceId = "service_6v9v4m7";
-    const templateId = "template_t882kdl";
-    const publicKey = "x8NhG7pwIj7VXCuO5";
-
-    // Create a new object that contains dynamic template params
-    const templateParams = {
-      user_name: name,
-      user_email: email,
-      user_phone: phone,
-      user_subject: subject,
-      user_msg: message,
-    };
-
-    // Send the email using EmailJS
-    emailjs.send(serviceId, templateId, templateParams, publicKey)
-      .then((response) => {
-        toast.success("Message sent successfully", response);
-        setName("");
-        setEmail("");
-        setPhone("");
-        setSubject("");
-        setMessage("");
-        setAgreeTerms(false); // Reset the checkbox
-      })
-      .catch((error) => {
-        toast.error("Error sending email", error);
-      });
-  };
-
+ 
   return (
     <>
       {/* Banner */}
@@ -200,14 +217,14 @@ const Home = () => {
               excellence—principles meticulously applied to the critical domain
               of renewable energy.
             </p>
-            <Link className="flex items-center gap-1 border border-main hover:bg-main hover:text-white text-main duration-200 rounded-full px-7 py-2.5 w-fit">
+            <Link to={'/about-us'} className="flex items-center gap-1 border border-main hover:bg-main hover:text-white text-main duration-200 rounded-full px-7 py-2.5 w-fit">
               Learn More <SlEnergy />
             </Link>
           </div>
           <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
             <img
               className="hover:scale-105 duration-200 h-[200px] w-full md:h-[300px] xl:h-[500px] object-cover"
-              src={Ealli11}
+              src={Ealli16}
               loading="lazy"
               alt=""
             />
@@ -358,13 +375,18 @@ const Home = () => {
             />
           ))}
         </Marquee>
+        <div className="mx-auto w-fit">
+          <Link to={'/projects'} className="mt-5 flex items-center gap-1 border border-main hover:bg-main hover:text-white text-main duration-200 rounded-full px-7 py-2.5 w-fit">
+              See More <SlEnergy />
+            </Link>
+        </div>
       </section>
       {/*  */}
 
       {/*  */}
       <section className="w-full h-[50vh] md:h-[30vh] xl:h-[60vh] relative overflow-hidden">
         <div className="w-full h-full absolute top-0 left-0 bg-[#0000007c]"></div>
-        <img className="object-cover  w-full h-full" src={Ealli2} alt="" />
+        <img className="object-cover  w-full h-full" src={Ealli1} alt="" />
         <div className="text-white absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] text-center z-10 w-10/12 mx-auto flex flex-col items-center gap-3">
           <h1 className="text-4xl xl:text-6xl font-medium">
             Let's Power the Future Together

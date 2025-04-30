@@ -20,6 +20,7 @@ const ProductDetails = lazy(() => import("./pages/ProductDetails"));
 const InvestorRelations = lazy(() => import("./pages/InvestorRelations"));
 const SustainabilityESG = lazy(() => import("./pages/Sustainability-esg"));
 const Career = lazy(() => import("./pages/Career"));
+const Projects = lazy(() => import("./pages/Projects"));
 const Contact = lazy(() => import("./pages/Contact"));
 
 const Layout = () => {
@@ -96,6 +97,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<Loading />}>
             <Career />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/projects",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Projects />
           </Suspense>
         ),
       },

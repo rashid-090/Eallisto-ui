@@ -1,5 +1,5 @@
 import React from 'react'
-import { Ealli11 } from '../assets'
+import { Ealli11, Ealli16 } from '../assets'
 import { Link } from 'react-router-dom'
 
 const AboutUs = () => {
@@ -29,7 +29,7 @@ const AboutUs = () => {
           <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
             <img
               className="hover:scale-105 duration-200 h-[500px] object-cover"
-              src={Ealli11}
+              src={Ealli16}
               alt=""
             />
           </div>

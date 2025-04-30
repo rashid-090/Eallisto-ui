@@ -5,28 +5,22 @@ const Career = () => {
   const jobOpenings = [
     {
       id: 1,
-      title: "Frontend Developer",
+      title: "Financial analyst",
       type: "Full-time",
       location: "Remote",
       department: "Engineering",
-      description: "We're looking for an experienced React developer to join our team and help build amazing user experiences."
+      description: "We are looking for experience candidates with Bcom and CMA",
+      linkto:`https://jobs.eallisto.com`
     },
     {
       id: 2,
-      title: "UX Designer",
-      type: "Contract",
+      title: "Solar Technical Engineer",
+      type: "Full-time",
       location: "Hybrid (New York)",
       department: "Design",
-      description: "Join our design team to create intuitive and beautiful interfaces for our products."
+      description: "We are looking for candidates who have experience in solar field with M tech or BTECH in electrical and electrical engineering",
+      linkto:`https://jobs.eallisto.com`
     },
-    {
-      id: 3,
-      title: "Marketing Specialist",
-      type: "Full-time",
-      location: "Remote",
-      department: "Marketing",
-      description: "Help us grow our brand and reach new customers through innovative marketing strategies."
-    }
   ];
 
   const benefits = [
@@ -42,18 +36,18 @@ const Career = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-main to-main-hover text-white py-14 px-4">
+      <section className="bg-gradient-to-r from-main to-main-hover text-white py-12 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-medium mb-6">Build Your Career With Us</h1>
-          <p className="text-xl max-w-3xl mx-auto">
+          <h1 className="text-4xl md:text-4xl font-medium mb-2">Build Your Career With Us</h1>
+          <p className="text-lg max-w-3xl mx-auto">
             Join our team of innovators and help shape the future of our industry.
           </p>
         </div>
       </section>
 
       {/* Job Openings */}
-      <section className="py-16 px-4 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Current Openings</h2>
+      <section className="pb-16 pt-10 px-4 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-gray-800 mb-5 text-center">Current Openings</h2>
         
         <div className="space-y-6">
           {jobOpenings.map((job) => (
@@ -64,44 +58,25 @@ const Career = () => {
                     <h3 className="text-2xl font-semibold text-gray-800">{job.title}</h3>
                     <div className="flex flex-wrap gap-2 mt-2">
                       <span className="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">{job.type}</span>
-                      <span className="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">{job.location}</span>
-                      <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">{job.department}</span>
+                      {/* <span className="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full">{job.location}</span>
+                      <span className="bg-purple-100 text-purple-800 text-sm px-3 py-1 rounded-full">{job.department}</span> */}
                     </div>
                   </div>
-                  <button className="mt-4 md:mt-0 bg-main hover:bg-main-hover text-white font-medium py-2 px-6 rounded-lg transition duration-300">
+                  <a href={job.linkto} target='_blank' className="mt-4 md:mt-0 bg-main hover:bg-main-hover text-white font-medium py-2 px-6 rounded-lg transition duration-300">
                     Apply Now
-                  </button>
+                  </a>
                 </div>
-                <p className="mt-4 text-gray-600">{job.description}</p>
+                <p className="mt-4 text-gray-600 text-sm">{job.description}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="py-16 px-4 bg-gray-100">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-800 mb-12 text-center">Our Benefits</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300">
-                <div className="flex items-center">
-                  <div className="bg-green-100 p-3 rounded-full mr-4">
-                    <svg className="w-6 h-6 text-main" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="text-lg font-medium text-gray-800">{benefit}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Application Form */}
-      <section className="py-16 px-4 max-w-4xl mx-auto">
+      {/* <section className="py-16 px-4 max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-gray-800 mb-8 text-center">Apply Now</h2>
         <form className="bg-white p-6 md:p-8 rounded-xl shadow-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -180,7 +155,7 @@ const Career = () => {
             </button>
           </div>
         </form>
-      </section>
+      </section> */}
 
      
     </div>

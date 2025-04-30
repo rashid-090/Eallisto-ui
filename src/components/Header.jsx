@@ -23,6 +23,7 @@ const allMenus = [
       link: `/product/${product.slug}`
     }))
   },
+  { label: `Projects`, link: `/projects` },
   { label: `Investor Relations`, link: `/investor-relations` },
   { label: `Sustainability & ESG`, link: `/sustainability-and-esg` },
   { label: `Career`, link: `/career` },
@@ -100,11 +101,12 @@ const Header = () => {
       />
 
       {/* Main header container */}
-      <div className={`w-full bg-white z-50 ${
+            <div className={`w-full bg-white z-50 transition-all duration-500 ease-in-out ${
         isSticky 
-          ? "fixed top-0 left-0 shadow-sm" 
-          : "relative"
+          ? "fixed top-0 left-0 opacity-100 translate-y-0" 
+          : "relative opacity-100 translate-y-2"
       }`}>
+
         {/* Top bar with logo and CTA */}
         <div className="w-11/12 mx-auto flex justify-between items-center h-[10vh] lg:h-[9vh]">
           <Link to={'/'}>
@@ -138,7 +140,7 @@ const Header = () => {
         <div className={`hidden lg:flex w-full justify-center border-t border-b h-[8vh]`}>
           <div className="flex justify-center items-center gap-20 w-11/12 mx-auto">
             <div
-              className="flex gap-6 xl:gap-10 relative "
+              className="flex gap-6 xl:gap-10 relative text-sm 2xl:text-lg"
               onMouseLeave={handleMenuLeave}
             >
               {allMenus.map((menu, index) => (
@@ -164,7 +166,7 @@ const Header = () => {
                   {/* Desktop Submenu */}
                   {menu.submenu && (
                     <div
-                      className={`absolute left-0 top-full mt-2 w-fit text-nowrap bg-white rounded-md shadow-lg py-1 z-50 ${
+                      className={`absolute text-sm 2xl:text-base left-0 top-full mt-2 w-fit text-nowrap bg-white rounded-md shadow-lg py-1 z-50 ${
                         activeSubmenu === index
                           ? "opacity-100 translate-y-0 visible"
                           : "opacity-0 -translate-y-2 invisible"
@@ -208,7 +210,7 @@ const Header = () => {
                   <div className="flex justify-between items-center">
                     <Link
                       to={menu.link}
-                      className="block text-gray-700 hover:text-main transition-colors text-b"
+                      className="block text-gray-700 hover:text-main transition-colors "
                       onClick={() =>
                         !menu.submenu && setMobileMenuOpen(false)
                       }
