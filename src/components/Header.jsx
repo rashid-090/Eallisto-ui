@@ -109,7 +109,7 @@ const Header = () => {
         <div className="w-11/12 mx-auto flex justify-between items-center h-[10vh] lg:h-[9vh]">
           <Link to={'/'}>
             <img
-              className={`${isSticky ? 'h-6 xl:h-10' : 'h-7 xl:h-11'} transition-all duration-500 object-contain`}
+              className={`${isSticky ? 'xl:h-10' : ' xl:h-11'} h-6  h-7 transition-all duration-500 object-contain`}
               src={Logo}
               alt="Company Logo"
             />
@@ -119,7 +119,7 @@ const Header = () => {
             <div className="flex gap-10">
               <Link
                 to={"/contact-us"}
-                className={`${isSticky ? 'scale-90': ''} h-8 xl:h-10 transition-all px-3 flex items-center gap-1 text-xs md:text-sm xl:text-base bg-main hover:bg-main-hover duration-200 text-white rounded-full`}
+                className={`${isSticky ? 'xl:scale-90': ''} h-8 xl:h-10 transition-all px-3 flex items-center gap-1 text-xs md:text-sm xl:text-base bg-main hover:bg-main-hover duration-200 text-white rounded-full`}
               >
                 Get Start <SlEnergy/>
               </Link>

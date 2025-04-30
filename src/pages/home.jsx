@@ -25,6 +25,8 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { Products } from "../components";
 import { SlEnergy } from "react-icons/sl";
+import emailjs from "@emailjs/browser";
+import { toast } from "react-toastify";
 
 const abtData = [
   {
@@ -105,39 +107,44 @@ const marquData = [
 
 const Home = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const [agreeTerms, setAgreeTerms] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const phoneNumber = "917994433160"; // Replace with your WhatsApp number
-    const message = `
-      New Contact Form Submission:
-      Name: ${formData.name}
-      Email: ${formData.email}
-      Phone: ${formData.phone}
-      Subject: ${formData.subject}
-      Message: ${formData.message}
-    `;
+    // Your EmailJS service ID, template ID, and Public Key
+    const serviceId = "service_6v9v4m7";
+    const templateId = "template_t882kdl";
+    const publicKey = "x8NhG7pwIj7VXCuO5";
 
-    const encodedMessage = encodeURIComponent(message);
-    window.open(
-      `https://wa.me/${phoneNumber}?text=${encodedMessage}`,
-      "_blank"
-    );
+    // Create a new object that contains dynamic template params
+    const templateParams = {
+      user_name: name,
+      user_email: email,
+      user_phone: phone,
+      user_subject: subject,
+      user_msg: message,
+    };
+
+    // Send the email using EmailJS
+    emailjs.send(serviceId, templateId, templateParams, publicKey)
+      .then((response) => {
+        toast.success("Message sent successfully", response);
+        setName("");
+        setEmail("");
+        setPhone("");
+        setSubject("");
+        setMessage("");
+        setAgreeTerms(false); // Reset the checkbox
+      })
+      .catch((error) => {
+        toast.error("Error sending email", error);
+      });
   };
 
   return (
@@ -426,15 +433,17 @@ const Home = () => {
             </div>
           </div>
           <form
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             className="grid grid-cols-1 md:grid-cols-2 bg-white gap-5 text-sm p-5 xl:p-10 py-10 xl:py-24"
           >
+         
+
             {/* Name Field */}
             <input
               type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
+              name="user_name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="border-b h-10 p-3 pl-0 focus:outline-none focus:border-main transition-colors duration-300"
               placeholder="Name"
               required
@@ -443,9 +452,9 @@ const Home = () => {
             {/* Email Field */}
             <input
               type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
+              name="user_email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="border-b h-10 p-3 pl-0 focus:outline-none focus:border-main transition-colors duration-300"
               placeholder="Email"
               required
@@ -454,9 +463,9 @@ const Home = () => {
             {/* Phone Field */}
             <input
               type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
+              name="user_phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               className="border-b h-10 p-3 pl-0 focus:outline-none focus:border-main transition-colors duration-300"
               placeholder="Mobile"
               required
@@ -465,9 +474,9 @@ const Home = () => {
             {/* Subject Field */}
             <input
               type="text"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
+              name="user_subject"
+              value={subject}
+              onChange={(e) => setSubject(e.target.value)}
               className="border-b h-10 p-3 pl-0 focus:outline-none focus:border-main transition-colors duration-300"
               placeholder="Subject"
               required
@@ -475,14 +484,30 @@ const Home = () => {
 
             {/* Message Field */}
             <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
+              name="user_msg"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               rows="5"
               placeholder="Message"
               className="border-b p-3 pl-0 md:col-span-2 focus:outline-none focus:border-main transition-colors duration-300"
               required
             ></textarea>
+
+            {/* Spam protection checkbox */}
+            <div className="md:col-span-2 flex items-start gap-3">
+            <input
+                type="checkbox"
+                id="human-check"
+                name="human-check"
+                checked={agreeTerms}
+                onChange={(e) => setAgreeTerms(e.target.checked)}
+                required
+                className="chec"
+              />
+                            <label htmlFor="human-check" className="text-xs text-gray-600">
+                I have read and agree to the website terms and conditions.
+              </label>
+            </div>
 
             {/* Submit Button */}
             <button

@@ -56,7 +56,7 @@ const ProductCarousel = () => {
                 />
               </div>
               <div className="p-3 flex-grow">
-                <h3 className="text-lg font-bold text-gray-800 mb-2">
+                <h3 className="text-base 2xl:text-lg font-bold text-gray-800 mb-2">
                   {product.title}
                 </h3>
                 <p className="text-gray-600 mb-4 truncate text-sm">
