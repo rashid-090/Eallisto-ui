@@ -111,7 +111,7 @@ const Header = () => {
         <div className="w-11/12 mx-auto flex justify-between items-center h-[10vh] lg:h-[9vh]">
           <Link to={'/'}>
             <img
-              className={`${isSticky ? 'xl:h-10' : ' xl:h-11'} h-6  h-7 transition-all duration-500 object-contain`}
+              className={`${isSticky ? 'xl:h-10' : ' xl:h-11'} h-7 transition-all duration-500 object-contain`}
               src={Logo}
               alt="Company Logo"
             />
