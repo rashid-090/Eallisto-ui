@@ -168,7 +168,7 @@ const Home = () => {
   return (
     <>
       {/* Banner */}
-      <div className="relative w-full h-[92vh] md:h-[30vh] xl:h-[92vh] overflow-hidden">
+      <div className="relative w-full h-[92vh] md:h-[70vh] xl:h-[92vh] overflow-hidden">
         <div className="w-full h-full absolute top-0 left-0 bg-[#00000049]"></div>
         <video
           className="object-cover w-full h-full"
@@ -181,7 +181,7 @@ const Home = () => {
           <source src={Bgvideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="text-white absolute bottom-0 left-5 xl:left-32 text-center md:text-left z-10 w-11/12  flex flex-col items-center md:items-start h-full justify-center py-10 gap-3">
+        <div className="text-white absolute bottom-0 left-5 lg:left-20 xl:left-32 text-center md:text-left z-10 w-11/12  flex flex-col items-center md:items-start h-full justify-center py-10 gap-3">
           <h1 className="text-2xl xl:text-5xl font-semibold xl:font-medium">
             Empowering Your Future with
             <br className="hidden xl:block" /> Sustainable Energy.
