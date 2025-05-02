@@ -1,14 +1,51 @@
 import React from 'react'
-import { Ealli11, Ealli16 } from '../assets'
+import { Ealli11, Ealli16, Ealli17 } from '../assets'
 import { Link } from 'react-router-dom'
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
+
+// import required modules
+import { Autoplay, Pagination } from 'swiper/modules'
+
+const ourTeams = [
+  {
+    id: 1,
+    name: `Krishna Ravanker`,
+    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
+    desig: `Vice president Technical`
+  },
+  {
+    id: 2,
+    name: `Sunil Chankapa`,
+    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
+    desig: `Vice president Business Development`
+  },
+  {
+    id: 3,
+    name: `Shahad`,
+    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
+    desig: `CMD`
+  },
+  {
+    id: 4,
+    name: `Waseems`,
+    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
+    desig: `CEO`
+  },
+]
 
 const AboutUs = () => {
   return (
     <>
-    <section className="w-11/12 xl:w-10/12 mx-auto h-full py-10 xl:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 gap-x-20">
+      <section className="w-11/12 xl:w-10/12 mx-auto h-full py-10 xl:py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 xl:gap-x-20">
           <div className="md:col-span-2 flex flex-col gap-5 h-full justify-center">
-          <h2 className="text-3xl xl:text-5xl font-semibold">
+            <h2 className="text-3xl xl:text-5xl font-semibold">
               <span className="text-main">Our Roots, Our Ascent:</span>
               <br className="hidden xl:block" />The Eallisto Energies Story
             </h2>
@@ -21,35 +58,91 @@ const AboutUs = () => {
               <h3 className='text-xl font-medium'>Our <span className='text-main'>Mission</span></h3>
               <p>To deliver comprehensive, reliable, and cutting-edge renewable energy solutions that empower our clients, protect our planet, and generate lasting value for our stakeholders.</p>
             </div>
-          
-            {/* <Link className="border border-main hover:bg-main hover:text-white text-main duration-200 rounded-full px-7 py-2.5 w-fit">
-              Learn More
-            </Link> */}
           </div>
-          <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
+          <div className="relative overflow-hidden rounded-3xl xl:rounded-[2rem] shadow-xl">
             <img
-              className="hover:scale-105 duration-200 h-[500px] object-cover"
-              src={Ealli16}
+              className="hover:scale-105 duration-200 h-full xl:h-[500px] object-cover"
+              src={Ealli17}
               alt=""
             />
           </div>
         </div>
       </section>
-       {/* CTA Section */}
-       <section className="py-10 px-4 bg-main text-white">
-       <div className="max-w-4xl mx-auto text-center">
-         <h2 className="text-3xl font-bold mb-6">Ready to transform your energy infrastructure?</h2>
-         <p className="text-xl mb-8">Our experts are standing by to help you find the right solutions for your needs.</p>
-         <div className="flex flex-col md:flex-row justify-center gap-4">
-           <Link to="/contact-us" className="bg-white text-main hover:bg-gray-100 font-semibold py-2 px-8 rounded-full xl:text-lg transition duration-300">
-             Contact Us
-           </Link>
-           <Link to="/contact-us" className="bg-transparent border-2 border-white hover:bg-white hover:text-main font-semibold py-2 px-8 rounded-full xl:text-lg transition duration-300">
-             Request Demo
-           </Link>
-         </div>
-       </div>
-     </section>
+      
+      {/* teams */}
+      <section className='w-11/12 xl:w-9/12 mx-auto py-10 xl:py-20'>
+        <h2 className="text-3xl xl:text-5xl text-center font-semibold">
+          Our <span className='text-main'>Team</span>
+        </h2>
+        
+           
+        {/* Mobile Swiper with autoplay and custom pagination */}
+        <div className='md:hidden mt-5'>
+          <Swiper
+            slidesPerView={1}
+            spaceBetween={20}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            pagination={false}
+            modules={[Autoplay, Pagination]}
+            className="mySwiper"
+          >
+            {ourTeams?.map((usr, i) => (
+              <SwiperSlide key={i}>
+                <div className='group relative h-full rounded-3xl overflow-hidden shadow-lg hover:shadow-xl duration-200'>
+                  <img className='object-cover rounded-3xl h-[400px] overflow-hidden w-full  duration-300' src={usr.profile} alt={usr.name} />
+                  <div className='absolute bg-[#0000009c] w-full h-fit text-center text-white p-1 capitalize py-2 bottom-0 left-0'>
+                    <p className='text-base font-medium pb-1'>{usr.name}</p>
+                    <p className='text-xs'>{usr.desig}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          
+          {/* Custom styles for pagination bullets */}
+          <style jsx global>{`
+            .swiper-pagination-bullet {
+              background-color: #ccc;
+              opacity: 1;
+              width: 10px;
+              height: 10px;
+              margin-bottom:-20px !important; 
+            }
+            .swiper-pagination-bullet-active-main {
+              background-color: #3b82f6; /* Change this to your main color if different */
+            }
+          `}</style>
+        </div>
+        
+        {/* Desktop Grid (hidden on mobile) */}
+        <div className='hidden md:grid grid-cols-2 lg:grid-cols-4 gap-2 gap-y-14 xl:gap-3 mt-5'>
+          {ourTeams?.map((usr, i) => (
+            <div className='group relative rounded-2xl xl:rounded-3xl shadow-lg hover:shadow-xl duration-200' key={i}>
+              <img className='object-cover rounded-2xl xl:rounded-3xl w-full h-[350px] group-hover:translate-y-1 duration-300' src={usr.profile} alt={usr.name} />
+              <div className='absolute bg-main rounded-full w-full md:w-[95%] text-center text-white p-1 capitalize xl:p-2 py-2 bottom-0 left-[50%] -translate-x-[50%] translate-y-[40%]'>
+                <p className='text-sm md:text-base font-medium pb-1'>{usr.name}</p>
+                <p className='text-[10px] 2xl:text-xs'>{usr.desig}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+      
+      {/* CTA Section */}
+      <section className="py-10 px-4 bg-main text-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to transform your energy infrastructure?</h2>
+          <p className="text-xl mb-8">Our experts are standing by to help you find the right solutions for your needs.</p>
+          <div className="flex flex-col md:flex-row justify-center gap-4">
+            <Link to="/contact-us" className="bg-white text-main hover:bg-gray-100 font-semibold py-2 px-8 rounded-full xl:text-lg transition duration-300">
+              Contact Us
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   )
 }

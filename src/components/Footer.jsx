@@ -86,21 +86,27 @@ const Footer = () => {
         <div>
           <p className="text-lg font-semibold">Products</p>
           <div className="flex flex-col gap-1 pt-2 text-sm">
-            {products?.map((pd,i)=>(
-               <Link key={i} to={`/product/${pd.slug}`} className="hover:text-main duration-200">
-               {pd.title}
-             </Link>
+            {products?.map((pd, i) => (
+              <Link
+                key={i}
+                to={`/product/${pd.slug}`}
+                className="hover:text-main duration-200"
+              >
+                {pd.title}
+              </Link>
             ))}
           </div>
         </div>
         <div>
           <p className="text-lg font-semibold">Address</p>
           <p className="pt-2 text-sm">
-          Hilite Business Park Phase- 2, 6th Floor Door Nos: 2/1149/I 218.
+            Wework Latitude 9th Floor, RMZ Latitude Commercial Bellary Road.
+            Hebbal Bengaluru, 560024, Karnataka.
           </p>
           <div className="text-2xl flex gap-5 pt-5">
             <a
-              href="#"
+              href="https://www.facebook.com/eallisto"
+              target="_blank"
               className="bg-main h-8 w-8 grid place-items-center rounded-full"
             >
               <FaFacebook className="text-xl text-white hover:scale-125 duration-150" />
@@ -112,12 +118,12 @@ const Footer = () => {
             >
               <FaLinkedin className="text-xl text-white hover:scale-125 duration-150" />
             </a>
-            <a
+            {/* <a
               href="#"
               className="bg-main h-8 w-8 grid place-items-center rounded-full"
             >
               <FaSquareXTwitter className="text-xl text-white hover:scale-125 duration-150" />
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

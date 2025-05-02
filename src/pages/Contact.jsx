@@ -13,7 +13,6 @@ const Contact = () => {
       <section className="w-full h-full relative py-10">
         <ContactForm />
         <div className="w-11/12 xl:w-10/12 mx-auto py-10  gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-          
           <div className="flex flex-col gap-1 p-5 border-l">
             <h4 className="text-lg font-medium">Kerala</h4>
             <p className="text-sm text-gray-500">
@@ -23,10 +22,25 @@ const Contact = () => {
           <div className="flex flex-col gap-1 p-5 border-l">
             <h4 className="text-lg font-medium">Karnataka</h4>
             <p className="text-sm text-gray-500">
+              Wework Latitude 9th Floor, RMZ Latitude Commercial Bellary Road.
+              Hebbal Bengaluru, 560024, Karnataka.
+            </p>
+          </div>
+          <div className="flex flex-col gap-1 p-5 border-l">
+            <h4 className="text-lg font-medium">Kerala</h4>
+            <p className="text-sm text-gray-500">
+              12/78A2, Gujarathi Street, Calicut Beach, Kozhikode, Kerala 673001
+              India.
+            </p>
+          </div>
+          <div className="flex flex-col gap-1 p-5 border-l">
+            <h4 className="text-lg font-medium">Karnataka</h4>
+            <p className="text-sm text-gray-500">
               No.15B, GF, Mamdev Mansion 18th Cross, Amrutha-Halli Main Rd,
               bengaluru - 560092.
             </p>
           </div>
+
           <div className="flex flex-col gap-1 p-5 border-l">
             <h4 className="text-lg font-medium">UAE</h4>
             <p className="text-sm text-gray-500">
@@ -34,8 +48,6 @@ const Contact = () => {
               Emirates.
             </p>
           </div>
-         
-         
         </div>
         <div className="w-11/12 xl:w-10/12 mx-auto">
           <iframe

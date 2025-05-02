@@ -1,5 +1,6 @@
 import Logo from './logo/ealistologo.png'
 import Logowebp from './logo/ealistologo.webp'
+import Logowht from './logo/\/ealistologowhit.png'
 import BannerBg from './images/eallistobg.webp'
 import Bgthumb from './images/vidthumb.webp'
 import Bgvideo from './video/ealistobg.mp4';
@@ -36,5 +37,5 @@ import Sustabg from './images/Sustainability.webp';
 
 
 export{
-    BannerBg,Bgvideo,Bgthumb,Logo,Ealli1,Ealli2,Ealli3,Ealli4,Ealli5,Ealli6,Ealli7,Ealli8,Ealli9,Ealli10,Ealli11,Ealli12,Ealli13,Ealli14,Ealli15,Ealli16,Ealli17,Ealli18,Ealli19,Ealli20,Ealli21,Ealli22,Ealli23,Ealli24,Ealli25,Ealli26,Logowebp,Invstbg,Sustabg
+    BannerBg,Bgvideo,Bgthumb,Logo,Logowht,Ealli1,Ealli2,Ealli3,Ealli4,Ealli5,Ealli6,Ealli7,Ealli8,Ealli9,Ealli10,Ealli11,Ealli12,Ealli13,Ealli14,Ealli15,Ealli16,Ealli17,Ealli18,Ealli19,Ealli20,Ealli21,Ealli22,Ealli23,Ealli24,Ealli25,Ealli26,Logowebp,Invstbg,Sustabg
 }

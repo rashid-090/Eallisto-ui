@@ -89,75 +89,99 @@ const abtData = [
 const marquData = [
   {
     image: Ealli1,
+    title:`land`
   },
   {
     image: Ealli2,
+    title:`land`
   },
   {
     image: Ealli3,
+    title:`land`
   },
   {
     image: Ealli4,
+    title:`land`
   },
   {
     image: Ealli5,
+    title:`land`
   },
   {
     image: Ealli6,
+    title:`land`
   },
   {
     image: Ealli7,
+    title:`land`
   },
   {
     image: Ealli8,
+    title:`land`
   },
   {
     image: Ealli9,
+    title:`land`
   },
   {
     image: Ealli10,
+    title:`land`
   },
   {
     image: Ealli11,
+    title:`land`
   },
   {
     image: Ealli12,
+    title:`land`
   },
   {
     image: Ealli14,
+    title:`land`
   },
   {
     image: Ealli15,
+    title:`land`
   },
   {
     image: Ealli16,
+    title:`roof`
   },
   {
     image: Ealli17,
+    title:`roof`
   },
   {
     image: Ealli19,
+    title:`roof`
   },
   {
     image: Ealli20,
+    title:`roof`
   },
   {
     image: Ealli21,
+    title:`roof`
   },
   {
     image: Ealli22,
+    title:`roof`
   },
   {
     image: Ealli23,
+    title:`roof`
   },
   {
     image: Ealli24,
+    title:`roof`
   },
   {
     image: Ealli25,
+    title:`roof`
   },
   {
     image: Ealli26,
+    title:`roof`
   },
 
 ];
@@ -176,9 +200,9 @@ const Home = () => {
           loop
           autoPlay
           playsInline
-          poster={Bgthumb}
+          poster={'https://res.cloudinary.com/dichoxvts/image/upload/v1746176024/Screenshot_2025-05-02_142235_mhkluf.png'}
         >
-          <source src={Bgvideo} type="video/mp4" />
+          <source src={'https://res.cloudinary.com/dichoxvts/video/upload/v1746175843/babnIMG_3216_fyfovq.mp4'} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="text-white absolute bottom-0 left-5 lg:left-20 xl:left-32 text-center md:text-left z-10 w-11/12  flex flex-col items-center md:items-start h-full justify-center py-10 gap-3">
@@ -224,7 +248,7 @@ const Home = () => {
           <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
             <img
               className="hover:scale-105 duration-200 h-[200px] w-full md:h-[300px] xl:h-[500px] object-cover"
-              src={Ealli16}
+              src={Ealli17}
               loading="lazy"
               alt=""
             />
@@ -354,25 +378,32 @@ const Home = () => {
         <h2 className=" text-3xl xl:text-5xl font-semibold">
           What is <span className="text-main">Eallisto Energies.</span>
         </h2>
-        <Marquee className="mt-10" pauseOnHover>
+        <Marquee className="mt-10 relative overflow-hidden" pauseOnHover>
           {marquData?.map((mq, i) => (
+            <>
             <img
               className="h-20 md:h-32 xl:h-40 object-cover mx-2 "
               key={i}
               src={mq.image}
+              loading="lazy"
               alt=""
             />
+            <h1 className="text-center text-[10px] pt-1 uppercase text-gray-500">{mq.title} Project</h1>
+            </>
           ))}
         </Marquee>
-        <Marquee direction="right" pauseOnHover className="pt-5">
+        <Marquee direction="right" pauseOnHover className="pt-5 relative overflow-hidden">
           {marquData?.map((mq, i) => (
+           <>
             <img
-              className="h-20 md:h-32 xl:h-40 object-cover mx-2 "
+              className="h-20 md:h-32 xl:h-40 object-cover mx-2 -z-10"
               key={i}
               loading="lazy"
               src={mq.image}
               alt="img"
             />
+            <h1 className="text-center text-[10px] pt-1 uppercase text-gray-500">{mq.title} Project</h1>
+           </>
           ))}
         </Marquee>
         <div className="mx-auto w-fit">

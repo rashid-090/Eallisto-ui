@@ -77,7 +77,7 @@ const ContactForm = () => {
     return (
         <div className="w-11/12 xl:w-10/12 mx-auto relative grid grid-cols-1 md:grid-cols-2 bg-gray-200 border overflow-hidden">
             <div className="p-5 xl:p-10 text-black h-full flex flex-col justify-center">
-                <h2 className="text-2xl xl:text-3xl uppercase font-medium">
+                <h2 className="text-2xl xl:text-5xl uppercase font-medium">
                     contact us
                 </h2>
                 <div className="pt-10 flex flex-col gap-5">
@@ -101,7 +101,8 @@ const ContactForm = () => {
                     </div>
                     <div className="text-2xl flex gap-5">
                         <a
-                            href="#"
+                             href="https://www.facebook.com/eallisto"
+                             target="_blank"
                             className="bg-white h-8 w-8 grid place-items-center rounded-full"
                         >
                             <FaFacebook className="text-xl text-main" />
@@ -113,12 +114,12 @@ const ContactForm = () => {
                         >
                             <FaLinkedin className="text-xl text-main" />
                         </a>
-                        <a
+                        {/* <a
                             href="#"
                             className="bg-white h-8 w-8 grid place-items-center rounded-full"
                         >
                             <FaSquareXTwitter className="text-xl text-main" />
-                        </a>
+                        </a> */}
                     </div>
                 </div>
             </div>
