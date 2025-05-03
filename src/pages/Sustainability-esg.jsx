@@ -64,7 +64,7 @@ const SustainabilityAndEasg = () => {
         <div className="space-y-2">
           <p>
             By choosing Eallisto Energies, you are not only investing in
-            reliable and cost-eff ective energy solutions but also partnering
+            reliable and cost-effective energy solutions but also partnering
             with a company that prioritizes a sustainable and equitable future
             for all.
           </p>

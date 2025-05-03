@@ -14,13 +14,13 @@ const Contact = () => {
         <ContactForm />
         <div className="w-11/12 xl:w-10/12 mx-auto py-10  gap-5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           <div className="flex flex-col gap-1 p-5 border-l">
-            <h4 className="text-lg font-medium">Kerala</h4>
+            <h4 className="text-lg font-medium">Corporate Office</h4>
             <p className="text-sm text-gray-500">
               Hilite Business Park Phase- 2, 6th Floor Door Nos: 2/1149/I 218.
             </p>
           </div>
           <div className="flex flex-col gap-1 p-5 border-l">
-            <h4 className="text-lg font-medium">Karnataka</h4>
+            <h4 className="text-lg font-medium">Sales and Operation Office</h4>
             <p className="text-sm text-gray-500">
               Wework Latitude 9th Floor, RMZ Latitude Commercial Bellary Road.
               Hebbal Bengaluru, 560024, Karnataka.
@@ -44,7 +44,7 @@ const Contact = () => {
           <div className="flex flex-col gap-1 p-5 border-l">
             <h4 className="text-lg font-medium">UAE</h4>
             <p className="text-sm text-gray-500">
-              YZ Building, Ouice - B - 307 Ai Goze Third Dubai, United Arab
+              YZ Building, Ouice - B - 307 AL Goze Third Dubai, United Arab
               Emirates.
             </p>
           </div>

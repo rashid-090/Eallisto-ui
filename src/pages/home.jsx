@@ -31,6 +31,7 @@ import {
   Ealli26,
 
   Logo,
+  Abtimg,
 } from "../assets";
 import { Link } from "react-router-dom";
 import Marquee from "react-fast-marquee";
@@ -76,7 +77,7 @@ const abtData = [
     icon: `https://img.icons8.com/ios-filled/50/FFFFFF/waste-sorting--v2.png`,
     title: `Renewable Energy Services`,
     stitle: `Tailored Solutions for a Greener Tomorrow`,
-    sub: `Our core expertise lies in delivering end-to-end renewable energy solutions, customized to your specifi c needs and consumption patterns.`,
+    sub: `Our core expertise lies in delivering end-to-end renewable energy solutions, customized to your specific needs and consumption patterns.`,
     points: [
       "Solar Plant Execution",
       "Energy Trading",
@@ -86,59 +87,8 @@ const abtData = [
   },
 ];
 
-const marquData = [
-  {
-    image: Ealli1,
-    title:`land`
-  },
-  {
-    image: Ealli2,
-    title:`land`
-  },
-  {
-    image: Ealli3,
-    title:`land`
-  },
-  {
-    image: Ealli4,
-    title:`land`
-  },
-  {
-    image: Ealli5,
-    title:`land`
-  },
-  {
-    image: Ealli6,
-    title:`land`
-  },
-  {
-    image: Ealli7,
-    title:`land`
-  },
-  {
-    image: Ealli8,
-    title:`land`
-  },
-  {
-    image: Ealli9,
-    title:`land`
-  },
-  {
-    image: Ealli10,
-    title:`land`
-  },
-  {
-    image: Ealli11,
-    title:`land`
-  },
-  {
-    image: Ealli12,
-    title:`land`
-  },
-  {
-    image: Ealli14,
-    title:`land`
-  },
+const marquData1 = [
+ 
   {
     image: Ealli15,
     title:`land`
@@ -147,10 +97,7 @@ const marquData = [
     image: Ealli16,
     title:`roof`
   },
-  {
-    image: Ealli17,
-    title:`roof`
-  },
+
   {
     image: Ealli19,
     title:`roof`
@@ -183,6 +130,49 @@ const marquData = [
     image: Ealli26,
     title:`roof`
   },
+
+];
+
+const marquData2 = [
+  {
+    image: Ealli1,
+    title:`land`
+  },
+  {
+    image: Ealli2,
+    title:`land`
+  },
+  {
+    image: Ealli3,
+    title:`land`
+  },
+
+  {
+    image: Ealli5,
+    title:`land`
+  },
+  {
+    image: Ealli6,
+    title:`land`
+  },
+  {
+    image: Ealli9,
+    title:`land`
+  },
+
+  {
+    image: Ealli11,
+    title:`land`
+  },
+  {
+    image: Ealli12,
+    title:`land`
+  },
+  {
+    image: Ealli14,
+    title:`land`
+  },
+
 
 ];
 
@@ -248,7 +238,7 @@ const Home = () => {
           <div className="relative overflow-hidden rounded-[2rem] shadow-xl">
             <img
               className="hover:scale-105 duration-200 h-[200px] w-full md:h-[300px] xl:h-[500px] object-cover"
-              src={Ealli17}
+              src={Abtimg}
               loading="lazy"
               alt=""
             />
@@ -268,9 +258,9 @@ const Home = () => {
               <p className="text-sm text-justify md:text-left">
                 Backed by the strength and diverse capabilities of the Eallisto
                 Group, our team comprises seasoned professionals in energy,
-                engineering, fi nance, and project management. This
+                engineering, finance, and project management. This
                 multidisciplinary expertise allows us to navigate the
-                complexities of the renewable energy landscape with confi dence
+                complexities of the renewable energy landscape with confidence
                 and deliver exceptional results.
               </p>
             </div>
@@ -305,7 +295,7 @@ const Home = () => {
             Our Sustainable <span className="text-main">Energy Portfolio</span>
           </h2>
           <p>
-            Eallisto Energies off ers a comprehensive suite of renewable energy
+            Eallisto Energies offers a comprehensive suite of renewable energy
             solutions tailored to meet the diverse needs of households,
             businesses, and large-scale industrial operations.
           </p>
@@ -379,7 +369,7 @@ const Home = () => {
           What is <span className="text-main">Eallisto Energies.</span>
         </h2>
         <Marquee className="mt-10 relative overflow-hidden" pauseOnHover>
-          {marquData?.map((mq, i) => (
+          {marquData1?.map((mq, i) => (
             <>
             <img
               className="h-20 md:h-32 xl:h-40 object-cover mx-2 "
@@ -388,12 +378,12 @@ const Home = () => {
               loading="lazy"
               alt=""
             />
-            <h1 className="text-center text-[10px] pt-1 uppercase text-gray-500">{mq.title} Project</h1>
+            <h1 className="text-center text-[10px/] xl:text-sm pt-1 uppercase text-gray-500">{mq.title} Project</h1>
             </>
           ))}
         </Marquee>
         <Marquee direction="right" pauseOnHover className="pt-5 relative overflow-hidden">
-          {marquData?.map((mq, i) => (
+          {marquData2?.map((mq, i) => (
            <>
             <img
               className="h-20 md:h-32 xl:h-40 object-cover mx-2 -z-10"
@@ -402,7 +392,7 @@ const Home = () => {
               src={mq.image}
               alt="img"
             />
-            <h1 className="text-center text-[10px] pt-1 uppercase text-gray-500">{mq.title} Project</h1>
+            <h1 className="text-center text-[10px/] xl:text-sm pt-1 uppercase text-gray-500">{mq.title} Project</h1>
            </>
           ))}
         </Marquee>
@@ -427,7 +417,7 @@ const Home = () => {
             home or business with the power of sustainability? Do you have a
             vision for a collaborative investment in a cleaner tomorrow? Reach
             out to our dedicated team of energy architects and sustainability
-            champions
+            champions.
           </p>
           <Link
             to={"/contact-us"}

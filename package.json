@@ -17,6 +17,7 @@
     "@mui/icons-material": "^5.16.0",
     "@mui/material": "^5.16.0",
     "@reduxjs/toolkit": "^2.4.0",
+    "@uiw/react-watermark": "^1.0.1",
     "aos": "^2.3.4",
     "axios": "^1.9.0",
     "date-and-time": "^3.6.0",
@@ -45,6 +46,7 @@
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.4",
+    "video.js": "^8.22.0",
     "yet-another-react-lightbox": "^3.23.0"
   },
   "devDependencies": {

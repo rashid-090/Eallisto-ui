@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { products } from '../components/data';
+import { BydBatry } from '../assets';
 
 const Product = () => {
   
@@ -21,7 +22,7 @@ const Product = () => {
       <section className="py-10 px-4 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
-            <div key={product.id} className="bg-white  shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+            <div key={product.id} className="bg-white relative shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
               <div className="h-48 overflow-hidden">
                 <img 
                   src={product.image} 
@@ -29,9 +30,9 @@ const Product = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6">
+              <div className="p-6 flex flex-col justify-between h-fit md:h-[250px]">
                 <h2 className="text-2xl font-bold text-gray-800 mb-3">{product.title}</h2>
-                <p className="text-gray-600 mb-6">{product.description}</p>
+                <p className="text-gray-600 mb-3">{product.description}</p>
                 <Link 
                   to={`/product/${product.slug}`} // Use dynamic route based on slug
                   className="inline-block w-full text-center bg-main hover:bg-main-hover text-white font-medium py-2 px-4 rounded-lg transition duration-300"
@@ -81,11 +82,11 @@ const Product = () => {
                   </div>
                 </div>
               </div>
-              <div className="md:w-1/2 bg-green-50 flex items-center justify-center p-8">
+              <div className="md:w-1/2 bg-green-50 flex items-center justify-center p-3 md:p-8">
                 <img 
-                  src="https://images.unsplash.com/photo-1486401899868-0e435ed85128?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                  src={BydBatry} 
                   alt="Energy solutions" 
-                  className="rounded-lg shadow-md w-full h-auto"
+                  className="rounded-xl bg-white md:rounded-3xl  w-full h-auto"
                 />
               </div>
             </div>
@@ -102,9 +103,7 @@ const Product = () => {
             <Link to="/contact-us" className="bg-white text-main hover:bg-gray-100 font-semibold py-2 px-8 rounded-full xl:text-lg transition duration-300">
               Contact Us
             </Link>
-            <Link to="/contact-us" className="bg-transparent border-2 border-white hover:bg-white hover:text-main font-semibold py-2 px-8 rounded-full xl:text-lg transition duration-300">
-              Request Demo
-            </Link>
+         
           </div>
         </div>
       </section>

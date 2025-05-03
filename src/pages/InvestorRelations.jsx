@@ -56,7 +56,7 @@ const InvestorRelations = () => {
             <br /> Partner with Eallisto
           </h2>
           <p className="text-sm md:text-base pt-5">
-            Eallisto Energies off ers a compelling vista for investors seeking
+            Eallisto Energies offers a compelling vista for investors seeking
             both robust returns and the profound satisfaction of contributing to
             a planet powered by clean energy.
           </p>
@@ -97,7 +97,7 @@ const InvestorRelations = () => {
           </h5>
           <p>
             By joining forces with Eallisto Energies, you directly contribute to
-            a signifi cant reduction in carbon emissions, nurturing a more
+            a significant reduction in carbon emissions, nurturing a more
             sustainable and vibrant future for all.
           </p>
         </div>
@@ -106,7 +106,7 @@ const InvestorRelations = () => {
             A Leadership Team of Visionaries
           </h5>
           <p>
-            Our leadership comprises seasoned experts in energy, fi nance, and
+            Our leadership comprises seasoned experts in energy, finance, and
             transformative project development, ensuring prudent investment
             management and the realization of ambitious goals.
           </p>
@@ -118,7 +118,7 @@ const InvestorRelations = () => {
           <p>
             We are steadfast in our commitment to providing our investors with
             clear, comprehensive, and timely insights into project milestones,
-            fi nancial performance, and our collective environmental impact.
+            financial performance, and our collective environmental impact.
           </p>
         </div>
         <div className="space-y-2">

@@ -26,7 +26,7 @@ const allMenus = [
   { label: `Projects`, link: `/projects` },
   { label: `Investor Relations`, link: `/investor-relations` },
   { label: `Sustainability & ESG`, link: `/sustainability-and-esg` },
-  { label: `Career`, link: `https://jobs.eallisto.com` },
+  // { label: `Career`, link: `https://jobs.eallisto.com` },
   { label: `Contact Us`, link: `/contact-us` },
 ];
 
@@ -200,67 +200,75 @@ const Header = () => {
           style={{ top: '10vh' }} // Fixed top position based on header height
         >
           <div className="relative w-11/12 mx-auto h-full overflow-y-scroll pt-12 pb-24">
-            <div className="space-y-4">
-              {allMenus.map((menu, index) => (
-                <div
-                  key={`mobile-${index}`}
-                  className="border-b border-gray-100 pb-2"
-                >
-                  <div className="flex justify-between items-center">
-                    <Link
-                      to={menu.link}
-                      className="block text-gray-700 hover:text-main transition-colors "
-                      onClick={() =>
-                        !menu.submenu && setMobileMenuOpen(false)
-                      }
-                    >
-                      {menu.label}
-                    </Link>
-                    {menu.submenu && (
-                      <button
-                        onClick={() => toggleMobileSubmenu(index)}
-                        className="p-2 focus:outline-none"
-                      >
-                        <FaChevronDown
-                          className={`text-xs transition-transform duration-200 ${
-                            mobileSubmenuOpen === index ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                    )}
-                  </div>
+  <div className="space-y-4">
+    {allMenus.map((menu, index) => (
+      <div
+        key={`mobile-${index}`}
+        className="border-b border-gray-100 pb-2"
+      >
+        <div className="flex justify-between items-center">
+          <Link
+            to={menu.link}
+            className="block text-gray-700 hover:text-main transition-colors"
+            onClick={() => {
+              // Close mobile menu when clicking any menu item
+              setMobileMenuOpen(false);
+              // Only toggle submenu if it exists
+              if (menu.submenu) {
+                toggleMobileSubmenu(index);
+              }
+            }}
+          >
+            {menu.label}
+          </Link>
+          {menu.submenu && (
+            <button
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent the Link onClick from firing
+                toggleMobileSubmenu(index);
+              }}
+              className="p-2 focus:outline-none"
+            >
+              <FaChevronDown
+                className={`text-xs transition-transform duration-200 ${
+                  mobileSubmenuOpen === index ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+          )}
+        </div>
 
-                  {/* Mobile Submenu */}
-                  {menu.submenu && (
-                    <div
-                      className={`pl-4 overflow-hidden ${
-                        mobileSubmenuOpen === index
-                          ? "max-h-96 opacity-100"
-                          : "max-h-0 opacity-0"
-                      } transition-all duration-300 ease-in-out`}
-                    >
-                      {menu.submenu.map((subitem, subIndex) => (
-                        <Link
-                          key={`mobile-sub-${subIndex}`}
-                          to={subitem.link}
-                          className="block py-3 text-gray-600 hover:text-main transition-colors"
-                          onClick={() => setMobileMenuOpen(false)}
-                        >
-                          {subitem.label}
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            <div className="flex gap-5 text-xl pt-8">
-              <FaFacebook className="hover:text-main cursor-pointer" />
-              <FaLinkedin className="hover:text-main cursor-pointer" />
-              <FaInstagram className="hover:text-main cursor-pointer" />
-            </div>
+        {/* Mobile Submenu */}
+        {menu.submenu && (
+          <div
+            className={`pl-4 overflow-hidden ${
+              mobileSubmenuOpen === index
+                ? "max-h-96 opacity-100"
+                : "max-h-0 opacity-0"
+            } transition-all duration-300 ease-in-out`}
+          >
+            {menu.submenu.map((subitem, subIndex) => (
+              <Link
+                key={`mobile-sub-${subIndex}`}
+                to={subitem.link}
+                className="block py-3 text-gray-600 hover:text-main transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {subitem.label}
+              </Link>
+            ))}
           </div>
+        )}
+      </div>
+    ))}
+  </div>
+
+  <div className="flex gap-5 text-xl pt-8">
+    <FaFacebook className="hover:text-main cursor-pointer" />
+    <FaLinkedin className="hover:text-main cursor-pointer" />
+    <FaInstagram className="hover:text-main cursor-pointer" />
+  </div>
+</div>
         </div>
       </div>
     </nav>

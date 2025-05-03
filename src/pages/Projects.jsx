@@ -15,7 +15,7 @@ const Projects = () => {
     {
       id: 1,
       url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746012297/dji_fly_20250426_160138_0287_1745918704619_video_u18c9z.mov`,
-      title: "2.5MW - land",
+      title: "2.5MW - land project",
       thumbnail:
         "https://res.cloudinary.com/dichoxvts/image/upload/v1746013529/Screenshot_2025-04-30_171453_fml2rh.png",
       description:
@@ -24,7 +24,7 @@ const Projects = () => {
     {
       id: 2,
       url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746012292/BNGLR_SITE_04_005_imvfzd.mov`,
-      title: "425KW - land",
+      title: "425KW - prakruthi products tumkur - roof project",
       thumbnail:
         "https://res.cloudinary.com/dichoxvts/image/upload/v1746013525/Screenshot_2025-04-30_171429_gwqvig.png",
       description:
@@ -33,7 +33,7 @@ const Projects = () => {
     {
       id: 3,
       url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746012289/BNGLR_SITE_05_009_d2hrgp.mov`,
-      title: "land",
+      title: "3MW - land project",
       thumbnail:
         "https://res.cloudinary.com/dichoxvts/image/upload/v1746013527/Screenshot_2025-04-30_171342_o34i1a.png",
       description:
@@ -42,7 +42,7 @@ const Projects = () => {
     {
       id: 4,
       url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746012285/BNGLR_SITE_02_001_ssbeks.mov`,
-      title: "50KW - land",
+      title: "50KW - vishal infra - roof project",
       thumbnail:
         "https://res.cloudinary.com/dichoxvts/image/upload/v1746013527/Screenshot_2025-04-30_171405_nrtych.png",
       description:
@@ -51,7 +51,7 @@ const Projects = () => {
     {
       id: 5,
       url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746013154/BNGLR_SITE_06_05_-_COMPRESS_ofp7ko.mp4`,
-      title: "20MW - land",
+      title: "20MW - land project",
       thumbnail:
         "https://res.cloudinary.com/dichoxvts/image/upload/v1746013527/Screenshot_2025-04-30_171202_na0hzc.png",
       description:
@@ -60,7 +60,7 @@ const Projects = () => {
     {
       id: 6,
       url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746013141/BNGLR_SITE_07_01_-_COMPRESS_iu4kjg.mp4`,
-      title: "3MW - land",
+      title: "3MW - land project",
       thumbnail:
         "https://res.cloudinary.com/dichoxvts/image/upload/v1746013526/Screenshot_2025-04-30_171229_cbqbhd.png",
       description:
@@ -69,7 +69,7 @@ const Projects = () => {
     {
       id: 7,
       url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746020792/WhatsApp_Video_2025-04-30_at_19.12.57_ec0150c8_tywtdg.mp4`,
-      title: "10KW - roof",
+      title: "10KW - roof project",
       thumbnail:
         "https://res.cloudinary.com/dichoxvts/image/upload/v1746020736/Screenshot_2025-04-30_191400_jt694a.png",
       description:
@@ -78,7 +78,7 @@ const Projects = () => {
     {
       id: 8,
       url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746020787/WhatsApp_Video_2025-04-30_at_19.12.58_2dc4ac00_jw6hbg.mp4`,
-      title: "12KW - roof",
+      title: "12KW - roof project",
       thumbnail:
         "https://res.cloudinary.com/dichoxvts/image/upload/v1746020744/Screenshot_2025-04-30_191434_jfsxkp.png",
       description:
@@ -87,9 +87,36 @@ const Projects = () => {
     {
       id: 9,
       url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746020787/WhatsApp_Video_2025-04-30_at_19.13.56_01446f16_howzee.mp4`,
-      title: "12KW - roof",
+      title: "12KW - roof project",
       thumbnail:
         "https://res.cloudinary.com/dichoxvts/image/upload/v1746020737/Screenshot_2025-04-30_191508_bkmovr.png",
+      description:
+        "Description for Project 2 highlighting its key features and development process.",
+    },
+    {
+      id: 10,
+      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746263836/BNGLR_SITE_03_003_1_emqndm.mp4`,
+      title: "120KW - Maruthi textile - roof project",
+      thumbnail:
+        "https://res.cloudinary.com/dichoxvts/image/upload/v1746263901/Screenshot_2025-05-03_144212_qhdxza.png",
+      description:
+        "Description for Project 2 highlighting its key features and development process.",
+    },
+    {
+      id: 11,
+      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746263835/BNGLR_SITE_03_04_1_tgm8s3.mp4`,
+      title: "120KW - Maruthi textile - roof project",
+      thumbnail:
+        "https://res.cloudinary.com/dichoxvts/image/upload/v1746263898/Screenshot_2025-05-03_144239_leuvja.png",
+      description:
+        "Description for Project 2 highlighting its key features and development process.",
+    },
+    {
+      id: 12,
+      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746263833/BNGLRqwe_SITE_03_002_jwklpz.mp4`,
+      title: "120KW - Maruthi textile - roof project",
+      thumbnail:
+        "https://res.cloudinary.com/dichoxvts/image/upload/v1746263897/Screenshot_2025-05-03_144314_kmgvx3.png",
       description:
         "Description for Project 2 highlighting its key features and development process.",
     },
@@ -149,13 +176,13 @@ const Projects = () => {
                   </>
                 )}
               </div>
-              <div className="absolute bottom-3 right-3">
-                <img className="w-16 object-contain" src={Logowht} alt="" />
+              <div className="absolute top-3 left-3">
+                <img className="w-16 object-contain opacity-70" src={Logowht} alt="" />
               </div>
               {video.title &&(
                  <div className="absolute bottom-3 left-3">
                  {/* Description is intentionally not shown here */}
-                 <h1 className="text-xs text-white uppercase">{video.title} Project</h1>
+                 <h1 className="text-[10px] text-white uppercase">{video.title}</h1>
                </div>
               )}
             </div>
@@ -198,19 +225,19 @@ const Projects = () => {
                     }}
                   />
                 </div>
-                <div className="absolute bottom-32 md:bottom-10 right-5 xl:right-40">
+                <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
                   <img
-                    className="w-20 md:w-24 object-contain"
+                    className="w-40 md:w-60 object-contain opacity-35"
                     src={Logowht}
                     alt=""
                   />
             
                 </div>
-                <div className="absolute bottom-32 md:bottom-10 left-5 xl:left-40">
+                <div className="absolute bottom-32 md:bottom-10 -translate-x-[50%] left-[50%]">
                 {/* Description is intentionally not shown here */}
                 {slide.title && (
-                  <h3 className="text-lg font-medium uppercase text-gray-900 dark:text-white mb-2">
-                    {slide.title} - Project
+                  <h3 className="text-xs xl:text-lg font-medium uppercase text-gray-900 dark:text-white mb-2">
+                    {slide.title}
                   </h3>
                 )}
               </div>

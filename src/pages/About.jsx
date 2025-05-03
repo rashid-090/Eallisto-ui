@@ -1,5 +1,5 @@
 import React from 'react'
-import { Ealli11, Ealli16, Ealli17 } from '../assets'
+import { Abtimg, Ealli11, Ealli16, Ealli17 } from '../assets'
 import { Link } from 'react-router-dom'
 
 // Import Swiper React components
@@ -15,28 +15,29 @@ import { Autoplay, Pagination } from 'swiper/modules'
 const ourTeams = [
   {
     id: 1,
-    name: `Krishna Ravanker`,
+    name: `Shahad Bangla`,
+    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
+    desig: `Chief Managing Director`
+  },
+  {
+    id: 2,
+    name: `Waseem Aslam`,
+    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
+    desig: `chief executive officer`
+  },
+  {
+    id: 3,
+    name: `Krishna Revanker`,
     profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
     desig: `Vice president Technical`
   },
   {
-    id: 2,
-    name: `Sunil Chankapa`,
+    id: 4,
+    name: `Sunil Chengappa`,
     profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
     desig: `Vice president Business Development`
   },
-  {
-    id: 3,
-    name: `Shahad`,
-    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
-    desig: `CMD`
-  },
-  {
-    id: 4,
-    name: `Waseems`,
-    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
-    desig: `CEO`
-  },
+  
 ]
 
 const AboutUs = () => {
@@ -62,7 +63,7 @@ const AboutUs = () => {
           <div className="relative overflow-hidden rounded-3xl xl:rounded-[2rem] shadow-xl">
             <img
               className="hover:scale-105 duration-200 h-full xl:h-[500px] object-cover"
-              src={Ealli17}
+              src={Abtimg}
               alt=""
             />
           </div>
