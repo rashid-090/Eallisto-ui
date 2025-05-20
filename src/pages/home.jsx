@@ -48,7 +48,7 @@ import ContactForm from "../components/ContactForm";
 
 const abtData = [
   {
-    icon: `https://img.icons8.com/pulsar-line/48/FFFFFF/--solar-panels.png`,
+    icon: `https://img.icons8.com/parakeet-line/48/FFFFFF/flash-on.png`,
     title: `Energy Portal`,
     stitle: `Your Gateway to Smart Energy Management`,
     sub: `Take control of your energy future with our intuitive Energy Portal. Designed for both residential and commercial clients.`,
@@ -94,41 +94,36 @@ const marquData1 = [
     title:`land`
   },
   {
-    image: Ealli16,
-    title:`roof`
-  },
-
-  {
     image: Ealli19,
-    title:`roof`
+    title:`rooftop`
   },
   {
     image: Ealli20,
-    title:`roof`
+    title:`rooftop`
   },
   {
     image: Ealli21,
-    title:`roof`
+    title:`rooftop`
   },
   {
     image: Ealli22,
-    title:`roof`
+    title:`rooftop`
   },
   {
     image: Ealli23,
-    title:`roof`
+    title:`rooftop`
   },
   {
     image: Ealli24,
-    title:`roof`
+    title:`rooftop`
   },
   {
     image: Ealli25,
-    title:`roof`
+    title:`rooftop`
   },
   {
     image: Ealli26,
-    title:`roof`
+    title:`rooftop`
   },
 
 ];

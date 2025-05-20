@@ -1,5 +1,5 @@
 import React from 'react'
-import { Abtimg, Ealli11, Ealli16, Ealli17 } from '../assets'
+import { Abtimg, Ealli11, Ealli16, Ealli17,revankar,sunil,shahad,waseem } from '../assets'
 import { Link } from 'react-router-dom'
 
 // Import Swiper React components
@@ -16,25 +16,25 @@ const ourTeams = [
   {
     id: 1,
     name: `Shahad Bangla`,
-    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
-    desig: `Chief Managing Director`
+    profile: shahad,
+    desig: `Chairman & Managing Director`
   },
   {
     id: 2,
     name: `Waseem Aslam`,
-    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
+    profile: waseem,
     desig: `chief executive officer`
   },
   {
     id: 3,
     name: `Krishna Revanker`,
-    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
-    desig: `Vice president Technical`
+    profile: revankar,
+    desig: `Vice president & Director of Technical`
   },
   {
     id: 4,
     name: `Sunil Chengappa`,
-    profile: `https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&w=600`,
+    profile: sunil,
     desig: `Vice president Business Development`
   },
   
@@ -71,7 +71,7 @@ const AboutUs = () => {
       </section>
       
       {/* teams */}
-      <section className='w-11/12 xl:w-9/12 mx-auto py-10 xl:py-20'>
+      <section className='w-11/12 md:w-9/12 xl:w-9/12 mx-auto py-10 xl:py-20'>
         <h2 className="text-3xl xl:text-5xl text-center font-semibold">
           Our <span className='text-main'>Team</span>
         </h2>
@@ -93,7 +93,7 @@ const AboutUs = () => {
             {ourTeams?.map((usr, i) => (
               <SwiperSlide key={i}>
                 <div className='group relative h-full rounded-3xl overflow-hidden shadow-lg hover:shadow-xl duration-200'>
-                  <img className='object-cover rounded-3xl h-[400px] overflow-hidden w-full  duration-300' src={usr.profile} alt={usr.name} />
+                  <img className='object-contain rounded-3xl h-[400px] overflow-hidden w-full  duration-300' src={usr.profile} alt={usr.name} />
                   <div className='absolute bg-[#0000009c] w-full h-fit text-center text-white p-1 capitalize py-2 bottom-0 left-0'>
                     <p className='text-base font-medium pb-1'>{usr.name}</p>
                     <p className='text-xs'>{usr.desig}</p>
@@ -119,13 +119,13 @@ const AboutUs = () => {
         </div>
         
         {/* Desktop Grid (hidden on mobile) */}
-        <div className='hidden md:grid grid-cols-2 lg:grid-cols-4 gap-2 gap-y-14 xl:gap-3 mt-5'>
+        <div className='hidden md:grid grid-cols-2 lg:grid-cols-4 gap-2 gap-y-14 xl:gap-3 mt-5 md:mb-10 xl:mb-0'>
           {ourTeams?.map((usr, i) => (
             <div className='group relative rounded-2xl xl:rounded-3xl shadow-lg hover:shadow-xl duration-200' key={i}>
-              <img className='object-cover rounded-2xl xl:rounded-3xl w-full h-[350px] group-hover:translate-y-1 duration-300' src={usr.profile} alt={usr.name} />
-              <div className='absolute bg-main rounded-full w-full md:w-[95%] text-center text-white p-1 capitalize xl:p-2 py-2 bottom-0 left-[50%] -translate-x-[50%] translate-y-[40%]'>
+              <img className='object-contain rounded-2xl xl:rounded-3xl w-full h-[300px] pt-5 border border-gray-100  duration-300' src={usr.profile} alt={usr.name} />
+              <div className='absolute bg-main rounded-full w-full md:w-[95%] text-center text-white p-1 capitalize xl:p-2 py-2 bottom-0 left-[50%] -translate-x-[50%] translate-y-[60%]'>
                 <p className='text-sm md:text-base font-medium pb-1'>{usr.name}</p>
-                <p className='text-[10px] 2xl:text-xs'>{usr.desig}</p>
+                <p className='text-[10px]'>{usr.desig}</p>
               </div>
             </div>
           ))}

@@ -37,7 +37,12 @@ import Ealli26 from './images/BNGLR SITE29.webp';
 import Invstbg from './images/Investor Relations.webp';
 import Sustabg from './images/Sustainability.webp';
 
+import revankar from './images/teams/revankar.webp';
+import sunil from './images/teams/sunil.webp';
+import shahad from './images/teams/shahad.webp';
+import waseem from './images/teams/waseem.webp';
+
 
 export{
-    BannerBg,Bgvideo,Bgthumb,Abtimg,BydBatry,Logo,Logowht,Ealli1,Ealli2,Ealli3,Ealli4,Ealli5,Ealli6,Ealli7,Ealli8,Ealli9,Ealli10,Ealli11,Ealli12,Ealli13,Ealli14,Ealli15,Ealli16,Ealli17,Ealli18,Ealli19,Ealli20,Ealli21,Ealli22,Ealli23,Ealli24,Ealli25,Ealli26,Logowebp,Invstbg,Sustabg
+    revankar,sunil,shahad,waseem,BannerBg,Bgvideo,Bgthumb,Abtimg,BydBatry,Logo,Logowht,Ealli1,Ealli2,Ealli3,Ealli4,Ealli5,Ealli6,Ealli7,Ealli8,Ealli9,Ealli10,Ealli11,Ealli12,Ealli13,Ealli14,Ealli15,Ealli16,Ealli17,Ealli18,Ealli19,Ealli20,Ealli21,Ealli22,Ealli23,Ealli24,Ealli25,Ealli26,Logowebp,Invstbg,Sustabg
 }

@@ -44,8 +44,10 @@ const Contact = () => {
           <div className="flex flex-col gap-1 p-5 border-l">
             <h4 className="text-lg font-medium">UAE</h4>
             <p className="text-sm text-gray-500">
-              YZ Building, Ouice - B - 307 AL Goze Third Dubai, United Arab
-              Emirates.
+            EALLISTO GENERAL TRADING L.L.C<br/>
+            YZ BUILDING, Office -B-307
+            Al Goze Third | Dubai
+            United Arab Emirates
             </p>
           </div>
         </div>
