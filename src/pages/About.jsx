@@ -62,7 +62,7 @@ const AboutUs = () => {
           </div>
           <div className="relative overflow-hidden rounded-3xl xl:rounded-[2rem] shadow-xl">
             <img
-              className="hover:scale-105 duration-200 h-full xl:h-[500px] object-cover"
+              className="hover:scale-105 duration-200 h-full w-full xl:h-[500px] object-cover"
               src={Abtimg}
               alt=""
             />

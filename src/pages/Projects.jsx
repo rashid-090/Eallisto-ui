@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 import ReactPlayer from "react-player";
 import { Logowht } from "../assets";
 import { Link } from "react-router-dom";
@@ -9,122 +11,96 @@ const Projects = () => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentVideo, setCurrentVideo] = useState(0);
   const [hoveredVideo, setHoveredVideo] = useState(null);
+  const playerRefs = useRef([]);
 
-  // Sample video data with thumbnails and descriptions
+  useEffect(() => {
+    const handleContextMenu = (e) => {
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", handleContextMenu);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+    };
+  }, []);
+
+  const getYouTubeId = (url) => {
+    const regExp =
+      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return match && match[2].length === 11 ? match[2] : null;
+  };
+
   const videos = [
     {
       id: 1,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746012297/dji_fly_20250426_160138_0287_1745918704619_video_u18c9z.mov`,
-      title: "2.5MW - land project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746013529/Screenshot_2025-04-30_171453_fml2rh.png",
-      description:
-        "This is a detailed description of Project 1 explaining what it is about and the technologies used.",
+      url: "https://youtu.be/ovlc72Z6sXU?si=5S4dCDvEDFocN-EV",
+      title: "Video 1",
     },
     {
       id: 2,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746012292/BNGLR_SITE_04_005_imvfzd.mov`,
-      title: "425KW - prakruthi products tumkur - roof project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746013525/Screenshot_2025-04-30_171429_gwqvig.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
+      url: "https://youtu.be/vx8nVI9VZ3M?si=YfbRNhuVJ9ph-ZzU",
+      title: "Video 2",
     },
     {
       id: 3,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746012289/BNGLR_SITE_05_009_d2hrgp.mov`,
-      title: "3MW - land project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746013527/Screenshot_2025-04-30_171342_o34i1a.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
+      url: "https://youtu.be/q8nleXaO_DM?si=nvrOOPM23JoHv4lW",
+      title: "Video 3",
     },
     {
       id: 4,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746012285/BNGLR_SITE_02_001_ssbeks.mov`,
-      title: "50KW - vishal infra - roof project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746013527/Screenshot_2025-04-30_171405_nrtych.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
+      url: "https://youtu.be/KPccVRl4OJg?si=RkFDs0VVUGnq2-fP",
+      title: "Video 4",
     },
     {
       id: 5,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746013154/BNGLR_SITE_06_05_-_COMPRESS_ofp7ko.mp4`,
-      title: "20MW - land project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746013527/Screenshot_2025-04-30_171202_na0hzc.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
+      url: "https://youtu.be/7jPrgquJUh4?si=NY29w3pBbnRfG0xO",
+      title: "Video 5",
     },
     {
       id: 6,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746013141/BNGLR_SITE_07_01_-_COMPRESS_iu4kjg.mp4`,
-      title: "3MW - land project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746013526/Screenshot_2025-04-30_171229_cbqbhd.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
+      url: "https://youtu.be/OFctUw9QVY0?si=oDOoTU4kveMjJWPm",
+      title: "Video 6",
     },
     {
       id: 7,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746020792/WhatsApp_Video_2025-04-30_at_19.12.57_ec0150c8_tywtdg.mp4`,
-      title: "10KW - roof project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746020736/Screenshot_2025-04-30_191400_jt694a.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
+      url: "https://youtu.be/ptH3sp-DnFg?si=kFWD5uLbpgioLqRK",
+      title: "Video 7",
     },
     {
       id: 8,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746020787/WhatsApp_Video_2025-04-30_at_19.12.58_2dc4ac00_jw6hbg.mp4`,
-      title: "12KW - roof project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746020744/Screenshot_2025-04-30_191434_jfsxkp.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
+      url: "https://youtu.be/Ta2NrkqgXSI?si=7Bw6onH-gAJ8XXpM",
+      title: "Video 8",
     },
-    {
-      id: 9,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746020787/WhatsApp_Video_2025-04-30_at_19.13.56_01446f16_howzee.mp4`,
-      title: "12KW - roof project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746020737/Screenshot_2025-04-30_191508_bkmovr.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
-    },
-    {
-      id: 10,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746263836/BNGLR_SITE_03_003_1_emqndm.mp4`,
-      title: "120KW - Maruthi textile - roof project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746263901/Screenshot_2025-05-03_144212_qhdxza.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
-    },
-    {
-      id: 11,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746263835/BNGLR_SITE_03_04_1_tgm8s3.mp4`,
-      title: "120KW - Maruthi textile - roof project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746263898/Screenshot_2025-05-03_144239_leuvja.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
-    },
-    {
-      id: 12,
-      url: `https://res.cloudinary.com/dichoxvts/video/upload/v1746263833/BNGLRqwe_SITE_03_002_jwklpz.mp4`,
-      title: "120KW - Maruthi textile - roof project",
-      thumbnail:
-        "https://res.cloudinary.com/dichoxvts/image/upload/v1746263897/Screenshot_2025-05-03_144314_kmgvx3.png",
-      description:
-        "Description for Project 2 highlighting its key features and development process.",
-    },
-  ];
+  ].map((video, index) => {
+    const youtubeId = getYouTubeId(video.url);
+    return {
+      ...video,
+      thumbnail: youtubeId
+        ? `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`
+        : "",
+      uniqueId: `${video.id}-${index}`,
+    };
+  });
 
   const openLightbox = (index) => {
     setCurrentVideo(index);
     setLightboxOpen(true);
+  };
+
+  const stopAllVideos = () => {
+    playerRefs.current.forEach((ref) => {
+      const internal = ref?.getInternalPlayer?.();
+      if (internal?.pauseVideo) {
+        internal.pauseVideo(); // YouTube
+      } else if (internal?.pause) {
+        internal.pause(); // HTML5 video
+      }
+    });
+  };
+
+  const handleClose = () => {
+    stopAllVideos();
+    setLightboxOpen(false);
   };
 
   return (
@@ -133,32 +109,41 @@ const Projects = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {videos.map((video, index) => (
             <div
-              key={video.id}
+              key={video.uniqueId}
               className="relative group overflow-hidden shadow-lg cursor-pointer transition-transform duration-300 hover:scale-[1.02]"
-              onClick={() => openLightbox(index)}
-              onMouseEnter={() => setHoveredVideo(video.id)}
+              onMouseEnter={() => setHoveredVideo(video.uniqueId)}
               onMouseLeave={() => setHoveredVideo(null)}
             >
               <div className="relative pt-[56.25%] bg-black">
-                {/* Thumbnail or Video Player */}
-                {hoveredVideo === video.id ? (
+                {hoveredVideo === video.uniqueId ? (
                   <ReactPlayer
                     url={video.url}
                     width="100%"
                     height="100%"
-                    playing={true}
-                    muted={true}
-                    loop={true}
+                    playing
+                    muted
+                    loop
                     controls={false}
                     style={{ position: "absolute", top: 0, left: 0 }}
+                    config={{
+                      youtube: {
+                        playerVars: {
+                          fs: 0,
+                          modestbranding: 1,
+                          rel: 0,
+                        },
+                      },
+                    }}
                   />
                 ) : (
                   <>
-                    {/* Thumbnail with play button overlay */}
                     <img
                       src={video.thumbnail}
                       alt={video.title}
                       className="absolute top-0 left-0 w-full h-full object-cover object-left-top"
+                      onError={(e) => {
+                        e.target.src = "https://via.placeholder.com/800x450";
+                      }}
                     />
                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity duration-300">
                       <svg
@@ -175,89 +160,100 @@ const Projects = () => {
                     </div>
                   </>
                 )}
+
+                {/* 🔸 Clickable overlay */}
+                <div
+                  className="absolute inset-0 z-10"
+                  onClick={() => openLightbox(index)}
+                />
               </div>
-              <div className="absolute top-3 left-3">
-                <img className="w-16 object-contain opacity-70" src={Logowht} alt="" />
+
+              {/* Logo */}
+              <div className="absolute bottom-3 left-3">
+                <img
+                  className="w-16 object-contain opacity-70"
+                  src={Logowht}
+                  alt=""
+                />
               </div>
-              {video.title &&(
-                 <div className="absolute bottom-3 left-3">
-                 {/* Description is intentionally not shown here */}
-                 <h1 className="text-[10px] text-white uppercase">{video.title}</h1>
-               </div>
-              )}
             </div>
           ))}
         </div>
 
         <Lightbox
           open={lightboxOpen}
-          close={() => setLightboxOpen(false)}
+          close={handleClose}
+          index={currentVideo}
           slides={videos.map((video) => ({
             type: "video",
             sources: [
               {
                 src: video.url,
-                type: "video/mp4",
+                type: video.url.includes("youtube")
+                  ? "video/youtube"
+                  : "video/mp4",
               },
             ],
             title: video.title,
-            description: video.description, // Include description for lightbox
           }))}
-          index={currentVideo}
           controller={{ closeOnBackdropClick: true }}
+          carousel={{ finite: true }}
+          on={{
+            view: ({ index }) => {
+              stopAllVideos(); // Pause previous video
+              setCurrentVideo(index);
+            },
+          }}
           render={{
-            slide: ({ slide }) => (
-              <div className="w-full h-full flex flex-col">
-                <div className="flex-grow relative">
+            slide: ({ slide, offset, rect, index }) => (
+              <div className="w-full h-full flex flex-col relative">
+                <div
+                  className="flex-grow relative"
+                  style={{
+                    width: rect.width,
+                    height: rect.height,
+                  }}
+                >
                   <ReactPlayer
+                    ref={(ref) => (playerRefs.current[index] = ref)}
                     url={slide.sources[0].src}
                     width="100%"
                     height="100%"
                     controls={true}
-                    playing={lightboxOpen}
-                    style={{ position: "absolute", top: 0, left: 0 }}
+                    playing={lightboxOpen && offset === 0}
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                      opacity: offset === 0 ? 1 : 0.5,
+                      transition: "opacity 0.3s",
+                    }}
                     config={{
+                      youtube: {
+                        playerVars: {
+                          controls: 1,
+                          disablekb: 1,
+                          modestbranding: 1,
+                          rel: 0,
+                          fs: 0,
+                        },
+                      },
                       file: {
                         attributes: {
-                          controlsList: "nodownload", // This disables the download button
+                          controlsList:
+                            "nodownload noremoteplayback noplaybackrate nofullscreen",
+                          disablePictureInPicture: true,
                         },
                       },
                     }}
                   />
                 </div>
-                <div className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                  <img
-                    className="w-40 md:w-60 object-contain opacity-35"
-                    src={Logowht}
-                    alt=""
-                  />
-            
-                </div>
-                <div className="absolute bottom-32 md:bottom-10 -translate-x-[50%] left-[50%]">
-                {/* Description is intentionally not shown here */}
-                {slide.title && (
-                  <h3 className="text-xs xl:text-lg font-medium uppercase text-gray-900 dark:text-white mb-2">
-                    {slide.title}
-                  </h3>
-                )}
-              </div>
-                {/* <div className="p-4 bg-white dark:bg-gray-800">
-                {slide.title && (
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
-                    {slide.title}
-                  </h3>
-                )}
-                {slide.description && (
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">
-                    {slide.description}
-                  </p>
-                )}
-              </div> */}
               </div>
             ),
           }}
         />
       </section>
+
       {/* CTA Section */}
       <section className="py-10 px-4 bg-main text-white">
         <div className="max-w-4xl mx-auto text-center">
@@ -265,8 +261,7 @@ const Projects = () => {
             Ready to transform your energy infrastructure?
           </h2>
           <p className="text-xl mb-8">
-            Our experts are standing by to help you find the right solutions for
-            your needs.
+            Our experts are standing by to help you find the right solutions for your needs.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-4">
             <Link

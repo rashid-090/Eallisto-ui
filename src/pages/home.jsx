@@ -185,9 +185,9 @@ const Home = () => {
           loop
           autoPlay
           playsInline
-          poster={'https://res.cloudinary.com/dichoxvts/image/upload/v1746176024/Screenshot_2025-05-02_142235_mhkluf.png'}
+          poster={Bgthumb}
         >
-          <source src={'https://res.cloudinary.com/dichoxvts/video/upload/v1746175843/babnIMG_3216_fyfovq.mp4'} type="video/mp4" />
+          <source src={Bgvideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="text-white absolute bottom-0 left-5 lg:left-20 xl:left-32 text-center md:text-left z-10 w-11/12  flex flex-col items-center md:items-start h-full justify-center py-10 gap-3">

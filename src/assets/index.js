@@ -3,7 +3,7 @@ import Logowebp from './logo/ealistologo.webp'
 import Logowht from './logo/\/ealistologowhit.png'
 import BannerBg from './images/eallistobg.webp'
 import Bgthumb from './images/vidthumb.webp'
-import Bgvideo from './video/ealistobg.mp4';
+import Bgvideo from './video/ealistobg3.mp4';
 
 import Abtimg from './images/abtimag.webp';
 import BydBatry from './images/byd-btry.webp';
