@@ -34,42 +34,42 @@ const Projects = () => {
     {
       id: 1,
       url: "https://youtu.be/ovlc72Z6sXU?si=5S4dCDvEDFocN-EV",
-      title: "Video 1",
+      title: "Maruthi Textile Karnataka 120 KW",
     },
     {
       id: 2,
       url: "https://youtu.be/vx8nVI9VZ3M?si=YfbRNhuVJ9ph-ZzU",
-      title: "Video 2",
+      title: "Bangalore Secret Soil Residential  Projects 5.5,6,7 KW",
     },
     {
       id: 3,
       url: "https://youtu.be/q8nleXaO_DM?si=nvrOOPM23JoHv4lW",
-      title: "Video 3",
+      title: "Sidharth Medical College Karnataka 3MW",
     },
     {
       id: 4,
       url: "https://youtu.be/KPccVRl4OJg?si=RkFDs0VVUGnq2-fP",
-      title: "Video 4",
+      title: "Global Tech PV Karnataka 20 MW",
     },
     {
       id: 5,
       url: "https://youtu.be/7jPrgquJUh4?si=NY29w3pBbnRfG0xO",
-      title: "Video 5",
+      title: "Basaweshwara Rice mill Karnataka 2.3 MW",
     },
     {
       id: 6,
       url: "https://youtu.be/OFctUw9QVY0?si=oDOoTU4kveMjJWPm",
-      title: "Video 6",
+      title: "Prakrutees Products 425 KW",
     },
     {
       id: 7,
       url: "https://youtu.be/ptH3sp-DnFg?si=kFWD5uLbpgioLqRK",
-      title: "Video 7",
+      title: "Vishal Infra 50 KW",
     },
     {
       id: 8,
       url: "https://youtu.be/Ta2NrkqgXSI?si=7Bw6onH-gAJ8XXpM",
-      title: "Video 8",
+      title: "Infrag Herbals 160KW",
     },
   ].map((video, index) => {
     const youtubeId = getYouTubeId(video.url);
@@ -167,15 +167,15 @@ const Projects = () => {
                   onClick={() => openLightbox(index)}
                 />
               </div>
-
+              <p className="absolute bottom-3 left-3 text-[10px] md:text-xs text-right text-white">{video.title}</p>
               {/* Logo */}
-              <div className="absolute bottom-3 left-3">
+              {/* <div className="absolute bottom-3 right-3">
                 <img
                   className="w-16 object-contain opacity-70"
                   src={Logowht}
                   alt=""
                 />
-              </div>
+              </div> */}
             </div>
           ))}
         </div>
